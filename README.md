@@ -1,5 +1,16 @@
 # Deep Point Clouds: 3D Perception
 
+## Problem Statement
+
+## Dataset
+
+## Abstract
+
+## Plan of Action
+1. Understanding PointNet
+2. Coding PointNet
+3. Training with ShapeNet Dataset
+4. Training with custom dataset
 
 
 
