@@ -152,3 +152,4 @@ Shape after Reshape to 3x3: torch.Size([32, 3, 3])
 13. https://medium.com/@itberrios6/point-net-from-scratch-78935690e496
 14. https://medium.com/@luis_gonzales/an-in-depth-look-at-pointnet-111d7efdaa1a
 15. https://www.youtube.com/watch?v=HIRj5pH2t-Y&t=427s&ab_channel=Lights%2CCamera%2CVision%21
+16. https://towardsdatascience.com/a-comprehensive-introduction-to-different-types-of-convolutions-in-deep-learning-669281e58215
