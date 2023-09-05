@@ -10,9 +10,17 @@
 1. Understanding PointNet
 2. Coding PointNet
 3. Training with ShapeNet Dataset
-4. Training with custom dataset
+4. Training with the custom dataset
 
 -----------------
+
+
+![pointnet](https://github.com/yudhisteer/Deep-Point-Clouds-3D-Perception/assets/59663734/f54fd8a0-901c-4743-ac91-a47303888b70)
+
+
+
+
+
 
 ## 2. Coding PointNet
 
