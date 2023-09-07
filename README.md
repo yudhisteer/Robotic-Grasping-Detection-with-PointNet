@@ -171,6 +171,11 @@ id18 --> id19[Reshape k x k]
 id19 --> id20[Output Transform]
 ```
 
+<p align="center">
+  <img src="https://github.com/yudhisteer/Deep-Point-Clouds-3D-Perception/assets/59663734/0f3ebf0d-3eb2-4a1c-a68a-dfcce2b3c31a" width="100%" />
+</p>
+
+
 
 ### 2.3 PointNet Feat
 
