@@ -139,6 +139,28 @@ Shape after FC3: torch.Size([32, 9])
 Shape after Reshape to 3x3: torch.Size([32, 3, 3])
 ```
 
+### 2.2 Feature T-Net
+
+
+
+### 2.3 PointNet Feat
+
+
+
+
+
+### 2.4 Classification Head
+
+
+### 2.5 Segmentation Head
+
+
+
+
+
+
+
+
 ------------------------
 <a name="tsd"></a>
 ## 3. Training with ShapeNet Dataset
