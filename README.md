@@ -15,6 +15,8 @@
 -----------------
 <a name="up"></a>
 ## 1. Understanding PointNet
+ PointNet is a neural network architecture designed for processing and understanding point cloud data. The architecture is designed to directly process **unordered** point cloud data, which makes it a useful tool for various ```3D tasks``` such as ```object classification```, ```object segmentation```, and ```shape recognition```. 
+ 
 
 
 <p align="center">
@@ -22,6 +24,15 @@
 </p>
 
 ### 1.1 Input T-Net
+
+### 1.2 Feature T-Net
+
+
+
+### 1.3 Shared Multi-Layer Perceptron (MLP)
+
+
+
 
 
 
