@@ -157,6 +157,20 @@ Shape after Reshape to 3x3: torch.Size([32, 3, 3])
 ### 2.2 Feature T-Net
 
 
+```python
+id1[Input Point Cloud] --> id2[Conv1D 64 + BatchNorm + ReLU]
+id3 --> id4[Conv1D 128 + BatchNorm + ReLU] 
+id5 --> id6[Conv1D 1024 + BatchNorm + ReLU]
+id7 --> id8[MaxPool]
+id9 --> id10[Flatten] 
+id11 --> id12[FC 512 + BatchNorm + ReLU]
+id13 --> id14[FC 256 + BatchNorm + ReLU]  
+id15 --> id16[FC k*k]
+id17 --> id18[Add Identity]
+id18 --> id19[Reshape k x k]
+id19 --> id20[Output Transform]
+```
+
 
 ### 2.3 PointNet Feat
 
