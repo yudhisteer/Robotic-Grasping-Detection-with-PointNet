@@ -140,11 +140,11 @@ Shape after Reshape to 3x3: torch.Size([32, 3, 3])
 ```
 
 ------------------------
-<a name="cp"></a>
+<a name="tsd"></a>
 ## 3. Training with ShapeNet Dataset
 
 ------------------------
-<a name="cp"></a>
+<a name="tcd"></a>
 ## 4. Training with Custom Dataset
 
 -------------------
