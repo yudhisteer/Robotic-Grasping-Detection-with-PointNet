@@ -7,12 +7,14 @@
 ## Abstract
 
 ## Plan of Action
-1. Understanding PointNet
-2. Coding PointNet
-3. Training with ShapeNet Dataset
-4. Training with the custom dataset
+1. [Understanding PointNet](#up)
+2. [Coding PointNet](#cp)
+3. [Training with ShapeNet Dataset](#tsd)
+4. [TTraining with ShapeNet Dataset](#tcd)
 
 -----------------
+<a name="up"></a>
+## 1. Understanding PointNet
 
 
 ![pointnet](https://github.com/yudhisteer/Deep-Point-Clouds-3D-Perception/assets/59663734/f54fd8a0-901c-4743-ac91-a47303888b70)
@@ -20,8 +22,8 @@
 
 
 
-
-
+------------------------
+<a name="cp"></a>
 ## 2. Coding PointNet
 
 ### 2.1 Input T-Net
@@ -137,9 +139,15 @@ Shape after FC3: torch.Size([32, 9])
 Shape after Reshape to 3x3: torch.Size([32, 3, 3])
 ```
 
+------------------------
+<a name="cp"></a>
+## 3. Training with ShapeNet Dataset
 
+------------------------
+<a name="cp"></a>
+## 4. Training with ShapeNet Dataset
 
-
+-------------------
 
 ## References
 1. https://medium.com/@luis_gonzales/an-in-depth-look-at-pointnet-111d7efdaa1a
