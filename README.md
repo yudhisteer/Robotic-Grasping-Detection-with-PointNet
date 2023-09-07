@@ -17,7 +17,10 @@
 ## 1. Understanding PointNet
 
 
-![pointnet](https://github.com/yudhisteer/Deep-Point-Clouds-3D-Perception/assets/59663734/f54fd8a0-901c-4743-ac91-a47303888b70)
+<p align="center">
+  <img src="https://github.com/yudhisteer/Deep-Point-Clouds-3D-Perception/assets/59663734/f54fd8a0-901c-4743-ac91-a47303888b70" width="70%" />
+</p>
+
 
 
 
@@ -41,6 +44,18 @@ id9 --> id10[Add Identity 9]
 id10 --> id11[Reshape 3x3]
 id11 --> id12[Output Transform Matrix]
 ```
+
+<p align="center">
+  <img src="https://github.com/yudhisteer/Deep-Point-Clouds-3D-Perception/assets/59663734/79a2c885-1f9a-4216-a40c-688e05bf8cf1" width="100%" />
+</p>
+
+
+
+
+
+
+
+
 
 ```python
 # Conv layers
