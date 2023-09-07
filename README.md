@@ -41,6 +41,34 @@ id11 --> id12[Output Transform Matrix]
 ```
 
 ```python
+# Fully connected layers
+conv1 = nn.Conv1d(3, 64, 1)
+conv2 = nn.Conv1d(64, 128, 1)
+conv3 = nn.Conv1d(128, 1024, 1)
+```
+
+```python
+# Fully connected layers
+fc1 = nn.Linear(1024, 512)
+fc2 = nn.Linear(512, 256)
+fc3 = nn.Linear(256, 9)
+```
+
+```python
+# Nonlinearities
+relu = nn.ReLU()
+```
+
+```python
+# Batch normalization layers
+bn1 = nn.BatchNorm1d(64)
+bn2 = nn.BatchNorm1d(128)
+bn3 = nn.BatchNorm1d(1024)
+bn4 = nn.BatchNorm1d(512)
+bn5 = nn.BatchNorm1d(256)
+```
+
+```python
 def stn3d(x):
     # Input shape
     batchsize = x.size()[0]
