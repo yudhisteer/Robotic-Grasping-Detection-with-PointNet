@@ -41,7 +41,7 @@ id11 --> id12[Output Transform Matrix]
 ```
 
 ```python
-# Fully connected layers
+# Conv layers
 conv1 = nn.Conv1d(3, 64, 1)
 conv2 = nn.Conv1d(64, 128, 1)
 conv3 = nn.Conv1d(128, 1024, 1)
