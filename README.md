@@ -10,7 +10,7 @@
 1. [Understanding PointNet](#up)
 2. [Coding PointNet](#cp)
 3. [Training with ShapeNet Dataset](#tsd)
-4. [TTraining with ShapeNet Dataset](#tcd)
+4. [Training with Custom Dataset](#tcd)
 
 -----------------
 <a name="up"></a>
@@ -145,7 +145,7 @@ Shape after Reshape to 3x3: torch.Size([32, 3, 3])
 
 ------------------------
 <a name="cp"></a>
-## 4. Training with ShapeNet Dataset
+## 4. Training with Custom Dataset
 
 -------------------
 
