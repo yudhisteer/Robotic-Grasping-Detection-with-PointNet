@@ -100,10 +100,29 @@ Let's take a step back and define some of these complex technical terms:
 
 In summary, this means that no matter how the original point cloud was ```oriented``` or ```positioned```, the T-Net will transform it in such a way that it becomes ```standardized```, making it **easier** for subsequent layers of the network to process the data effectively.
 
-
-
-
 ### 1.4 Feature Transform
+The PointNet has a second transformer network called ```Feature T-Net```.  The role of this second T-Net is to predict a ```feature transformation matrix``` to align features from different input point clouds. It captures ```fine-grained``` information about ```point-specific transformations``` that are important for capturing ```local details``` and ```patterns```.
+
+<p align="center">
+  <img src="https://github.com/yudhisteer/Deep-Point-Clouds-3D-Perception/assets/59663734/0f3ebf0d-3eb2-4a1c-a68a-dfcce2b3c31a" width="100%" />
+</p>
+
+
+In the paper, the author argues that the feature space has a ```higher dimension``` which greatly increases the complexity of the optimization process. Hence, they add a ```regularization``` term to their ```softmax``` training loss in order to constrain the feature transformation matrix to be close to ```orthogonal```. By being orthogonal. it helps ensure that the transformation applied to features during alignment doesn't introduce ```unnecessary distortion``` which could result in ```loss of information```. Below is the regularization term where ```A``` is the feature transformation matrix and ```I``` is the identity matrix: 
+
+<p align="center">
+  <img src="https://github.com/yudhisteer/Classifying-Lego-with-PointNet/assets/59663734/af430dae-0c60-4929-8b4a-b2e727dae109" />
+</p>
+
+
+In summary, this is the difference between the Input T-Net and the Feature T-Net:
+
+- **Input T-Net:** By aligning the entire input point cloud to a **canonical space**, the Input T-Net captures ```global features``` that are **invariant** to transformations like **rotation** and **translation**.
+
+- **Feature T-Net:** Operates on the **feature vectors** extracted from the point cloud **after** the initial global alignment by the **Input T-Net**. It aims to capture ```local features``` and ```fine-grained patterns``` within the aligned point cloud.
+
+
+
 
 
 
@@ -257,9 +276,6 @@ id18 --> id19[Reshape k x k]
 id19 --> id20[Output Transform]
 ```
 
-<p align="center">
-  <img src="https://github.com/yudhisteer/Deep-Point-Clouds-3D-Perception/assets/59663734/0f3ebf0d-3eb2-4a1c-a68a-dfcce2b3c31a" width="100%" />
-</p>
 
 
 
