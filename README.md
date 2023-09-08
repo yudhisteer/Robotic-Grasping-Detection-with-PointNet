@@ -83,7 +83,7 @@ Let's describe the three main properties of a point cloud:
 From the PointNet architecture, we observe that the Input Transform encompasses a ```T-Net```. So what is a T-Net? The T-Net is a type of **Spatial transformer Network (STN)** that can be seen as a ```mini-PointNet```. The first T-Net takes in ```raw point cloud data``` and outputs a ```3 x 3``` matrix.
 
 <p align="center">
-  <img src="https://github.com/yudhisteer/Deep-Point-Clouds-3D-Perception/assets/59663734/79a2c885-1f9a-4216-a40c-688e05bf8cf1" width="100%" />
+  <img src="https://github.com/yudhisteer/Classifying-Lego-with-PointNet/assets/59663734/bd6df400-744f-468e-ad68-5071db6675f6" width="100%" />
 </p>
 
 The T-Net is responsible for predicting an ```affine transformation matrix``` that aligns the input point cloud to a ```canonical space```. This alignment ensures that the network is **invariant** to certain geometric transformations, such as ```rigid transformations```.
