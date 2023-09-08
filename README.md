@@ -80,6 +80,28 @@ Let's describe the three main properties of a point cloud:
 - **Invariance Under Transformations:** A good representation of a point cloud should stay the same even if we ```rotate``` or ```translate``` the entire point cloud. In other words, changing the viewpoint or position of the points as a whole shouldn't change the global point cloud category or segmentation of the points.
 
 ### 1.3 Input Transform
+From the PointNet architecture, we observe that the Input Transform encompasses a ```T-Net```. So what is a T-Net? The T-Net is a type of **Spatial transformer Network (STN)** that can be seen as a ```mini-PointNet```. The first T-Net takes in ```raw point cloud data``` and outputs a ```3 x 3``` matrix.
+
+<p align="center">
+  <img src="https://github.com/yudhisteer/Deep-Point-Clouds-3D-Perception/assets/59663734/79a2c885-1f9a-4216-a40c-688e05bf8cf1" width="100%" />
+</p>
+
+The T-Net is responsible for predicting an ```affine transformation matrix``` that aligns the input point cloud to a ```canonical space```. This alignment ensures that the network is **invariant** to certain geometric transformations, such as ```rigid transformations```.
+
+Let's take a step back and define some of these complex technical terms:
+
+- **Affine transformation matrix:** This matrix defines how the input points should be ```transformed``` to align with the reference space (Canonical space).
+
+
+- **Canonical space:** It refers to a ```standardized``` and ```consistent reference point``` for processing 3D point clouds. It's like choosing a common starting point or orientation for all input point clouds. This standardization ensures that no matter how a point cloud is initially positioned or rotated, it gets transformed into this ```common reference frame```. This simplifies the learning process of the neural network. 
+
+
+- **Rigid transformations:**  Transformation that **preserves** the ```shape``` and ```size``` of an object. It includes operations like ```translation``` (moving an object without changing its shape), ```rotation``` (turning an object around a point), and ```reflection``` (flipping an object). Essentially, rigid transformations **don't distort** or **deform** the object; they only change its ```position``` and ```orientation``` in space.
+
+In summary, this means that no matter how the original point cloud was ```oriented``` or ```positioned```, the T-Net will transform it in such a way that it becomes ```standardized```, making it **easier** for subsequent layers of the network to process the data effectively.
+
+
+
 
 ### 1.4 Feature Transform
 
@@ -112,9 +134,6 @@ id10 --> id11[Reshape 3x3]
 id11 --> id12[Output Transform Matrix]
 ```
 
-<p align="center">
-  <img src="https://github.com/yudhisteer/Deep-Point-Clouds-3D-Perception/assets/59663734/79a2c885-1f9a-4216-a40c-688e05bf8cf1" width="100%" />
-</p>
 
 
 
