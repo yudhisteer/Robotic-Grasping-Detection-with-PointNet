@@ -1,4 +1,4 @@
-# Deep Point Clouds: PointNet
+# Classifying Lego with PointNet
 
 ## Problem Statement
 
@@ -79,13 +79,13 @@ Let's describe the three main properties of a point cloud:
 
 - **Invariance Under Transformations:** A good representation of a point cloud should stay the same even if we ```rotate``` or ```translate``` the entire point cloud. In other words, changing the viewpoint or position of the points as a whole shouldn't change the global point cloud category or segmentation of the points.
 
-### 1.2 Input Transform
+### 1.3 Input Transform
 
-### 1.3 Feature Transform
+### 1.4 Feature Transform
 
 
 
-### 1.4 Shared Multi-Layer Perceptron (MLP)
+### 1.5 Shared Multi-Layer Perceptron (MLP)
 
 
 
