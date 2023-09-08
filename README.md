@@ -103,6 +103,8 @@ In summary, this means that no matter how the original point cloud was ```orient
 ### 1.4 Feature Transform
 The PointNet has a second transformer network called ```Feature T-Net```.  The role of this second T-Net is to predict a ```feature transformation matrix``` to align features from different input point clouds. It captures ```fine-grained``` information about ```point-specific transformations``` that are important for capturing ```local details``` and ```patterns```.
 
+The second transformer network has the same architecture as the first except that this one's output is a ```64 x 64``` matrix. In the diagram below we used ```k``` where k will be equal to ```64```.
+
 <p align="center">
   <img src="https://github.com/yudhisteer/Deep-Point-Clouds-3D-Perception/assets/59663734/0f3ebf0d-3eb2-4a1c-a68a-dfcce2b3c31a" width="100%" />
 </p>
