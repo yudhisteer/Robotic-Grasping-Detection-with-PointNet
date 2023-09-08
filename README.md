@@ -15,21 +15,59 @@
 -----------------
 <a name="up"></a>
 ## 1. Understanding PointNet
- PointNet is a neural network architecture designed for processing and understanding point cloud data. The architecture is designed to directly process **unordered** point cloud data, which makes it a useful tool for various ```3D tasks``` such as ```object classification```, ```object segmentation```, and ```shape recognition```. 
- 
 
+Before PointNet, researchers would convert point cloud data into **3D Voxel Grids**. A large portion of these voxel grids can be empty and this makes the data voluminous. The idea behind PointNet is to take in directly the point cloud data such that it respects the ```permutation invariance``` of points in the point cloud data.
 
 <p align="center">
   <img src="https://github.com/yudhisteer/Deep-Point-Clouds-3D-Perception/assets/59663734/f54fd8a0-901c-4743-ac91-a47303888b70" width="70%" />
 </p>
 
-### 1.1 Input Transform
+PointNet is a neural network architecture designed for processing and understanding point cloud data. The architecture is designed to directly process **unordered** point cloud data, which makes it a useful tool for various ```3D tasks``` such as ```object classification```, ```object segmentation```, and ```shape recognition```. 
 
-### 1.2 Feature Transform
+<p align="center">
+  <img src="https://github.com/yudhisteer/Deep-Point-Clouds-3D-Perception/assets/59663734/3d3487cf-65c5-4cc7-b744-5813d5b6e27d" width="40%" />
+</p>
+
+
+### 1.1 Permutation Invariance
+
+Point clouds represent a set of points in 3D space. Each point typically has attributes such as position ```(x, y, z)``` and possibly additional features (e.g., ```color, intensity```). These point clouds are **unordered** sets of points, meaning that the order of the points in the set doesn't convey any meaningful information. For example, if we have a point cloud representing the 3D coordinates of objects in a scene, we could shuffle the order of the points without changing the scene itself. Here's an example below:
+
+**Original Point Cloud:**
+ 
+```python
+Point 1: (0, 0, 0)
+Point 2: (1, 0, 0)
+Point 3: (0, 1, 0)
+Point 4: (1, 1, 0)
+Point 5: (0, 0, 1)
+Point 6: (1, 0, 1)
+Point 7: (0, 1, 1)
+Point 8: (1, 1, 1)
+```
+
+**Shuffled Point Cloud:**
+
+```python
+Point 1: (0, 1, 0)
+Point 2: (1, 0, 0)
+Point 3: (1, 1, 0)
+Point 4: (0, 0, 0)
+Point 5: (0, 1, 1)
+Point 6: (1, 1, 1)
+Point 7: (1, 0, 1)
+Point 8: (0, 0, 1)
+```
+
+Although the order of the points has changed, the ```spatial relationships``` between the points and the overall structure of the cube **remain the same**. It's about recognizing that the order of points in a point cloud **doesn't change** the ```underlying geometry``` or content being represented.
+
+### 1.2 Input Transform
+
+### 1.3 Feature Transform
 
 
 
-### 1.3 Shared Multi-Layer Perceptron (MLP)
+### 1.4 Shared Multi-Layer Perceptron (MLP)
 
 
 
