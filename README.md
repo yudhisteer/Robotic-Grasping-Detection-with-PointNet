@@ -16,13 +16,15 @@
 <a name="up"></a>
 ## 1. Understanding PointNet
 
-Before PointNet, researchers would convert point cloud data into **3D Voxel Grids**. A large portion of these voxel grids can be empty and this makes the data voluminous. The idea behind PointNet is to take in directly the point cloud data such that it respects the ```permutation invariance``` of points in the point cloud data.
+Before PointNet, researchers would convert point cloud data into **3D Voxel Grids**. A large portion of these voxel grids can be empty and this makes the data voluminous. 
+
+PointNet is a neural network architecture designed for processing and understanding point cloud data. The idea behind PointNet is to take in directly the point cloud data such that it respects the ```permutation invariance``` of points in the point cloud data.
 
 <p align="center">
   <img src="https://github.com/yudhisteer/Deep-Point-Clouds-3D-Perception/assets/59663734/f54fd8a0-901c-4743-ac91-a47303888b70" width="70%" />
 </p>
 
-PointNet is a neural network architecture designed for processing and understanding point cloud data. The architecture is designed to directly process **unordered** point cloud data, which makes it a useful tool for various ```3D tasks``` such as ```object classification```, ```object segmentation```, and ```shape recognition```. 
+The architecture is designed to directly process **unordered** point cloud data, which makes it a useful tool for various ```3D tasks``` such as ```object classification```, ```object segmentation```, and ```shape recognition```. 
 
 <p align="center">
   <img src="https://github.com/yudhisteer/Deep-Point-Clouds-3D-Perception/assets/59663734/3d3487cf-65c5-4cc7-b744-5813d5b6e27d" width="40%" />
@@ -49,17 +51,33 @@ Point 8: (1, 1, 1)
 **Shuffled Point Cloud:**
 
 ```python
-Point 1: (0, 1, 0)
-Point 2: (1, 0, 0)
-Point 3: (1, 1, 0)
-Point 4: (0, 0, 0)
-Point 5: (0, 1, 1)
-Point 6: (1, 1, 1)
-Point 7: (1, 0, 1)
-Point 8: (0, 0, 1)
+Point 1: (0, 1, 0) # Previously point 3
+Point 2: (1, 0, 0) # Previously point 2
+Point 3: (1, 1, 0) # Previously point 4
+Point 4: (0, 0, 0) # Previously point 1
+Point 5: (0, 1, 1) # Previously point 1
+Point 6: (1, 1, 1) # Previously point 8
+Point 7: (1, 0, 1) # Previously point 6
+Point 8: (0, 0, 1) # Previously point 5
 ```
 
 Although the order of the points has changed, the ```spatial relationships``` between the points and the overall structure of the cube **remain the same**. It's about recognizing that the order of points in a point cloud **doesn't change** the ```underlying geometry``` or content being represented.
+
+
+#### How does PointNet process point cloud data in a permutation-invariant manner?
+
+- **Symmetric Functions:** ```Max-pooling``` to aggregate information from all points in the input set. The operation treats all points equally, regardless of their order.
+
+- **Shared Weights:** The same set of weights using ```Multi-Layer Perceptron (MLP)``` is used for all points in the input. This means that the processing applied to one point is the same as that applied to any other point. This shared weight scheme ensures that the network doesn't favor any particular order of points.
+
+### 1.2 Point Cloud Properties
+Let's describe the three main properties of a point cloud:
+
+- **Unordered:** A point cloud is a collection of 3D points, and unlike images or grids, there's ```no specific order``` to these points. This means that the order in which we feed the points to a network shouldn't matter. It should be able to handle any order we provide.
+
+- **Interaction Among Points:** These points aren't isolated; they have a ```distance metric```. Nearby points often form meaningful structures. So, a good model should be able to capture these local patterns and understand how points interact with each other.
+
+- **Invariance Under Transformations:** A good representation of a point cloud should stay the same even if we ```rotate``` or ```translate``` the entire point cloud. In other words, changing the viewpoint or position of the points as a whole shouldn't change the global point cloud category or segmentation of the points.
 
 ### 1.2 Input Transform
 
