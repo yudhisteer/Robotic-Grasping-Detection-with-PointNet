@@ -127,8 +127,9 @@ In summary, this is the difference between the Input T-Net and the Feature T-Net
 Since the Input T-Net and Feature T-Net are themselves mini-PointNet, they both contain shared MLPs in their architecture. While MLP is a type of neural network architecture that consists of multiple layers of artificial neurons (perceptrons), we will use ```1D convolutional layers (Conv1D)``` for the shared MLP in PointNet and ```Fully-Connected (FC)``` layers after. Note that the shared MLPs are the ```core feature extraction``` component after the initial alignment and transformation by the Input T-Net and Feature T-Net.
 
 <p align="center">
-  <img src="https://github.com/yudhisteer/Classifying-Lego-with-PointNet/assets/59663734/004228eb-cabf-4ab2-b1d1-b3e4fc3c3d5d" width="100%" />
+  <img src="https://github.com/yudhisteer/Classifying-Lego-with-PointNet/assets/59663734/60635a90-8bf9-4fa4-8be7-d0620560c5c2" width="100%" />
 </p>
+
 
 
 
