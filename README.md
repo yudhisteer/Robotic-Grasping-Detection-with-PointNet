@@ -124,13 +124,15 @@ In summary, this is the difference between the Input T-Net and the Feature T-Net
 - **Feature T-Net:** Operates on the **feature vectors** extracted from the point cloud **after** the initial global alignment by the **Input T-Net**. It aims to capture ```local features``` and ```fine-grained patterns``` within the aligned point cloud.
 
 ### 1.5 Shared Multi-Layer Perceptron (MLP)
-Since the Input T-Net and Feature T-Net are themselves mini-PointNet, they both contain shared MLPs in their architecture. While MLP is a type of neural network architecture that consists of multiple layers of artificial neurons (perceptrons), we will use ```1D convolutional layers (Conv1D)``` for the shared MLP in PointNet and ```Fully-Connected (FC)``` layers after. Note that the shared MLPs are the ```core feature extraction``` component after the initial alignment and transformation by the Input T-Net and Feature T-Net.
+Since the Input T-Net and Feature T-Net are themselves mini-PointNet, they both contain shared MLPs in their architecture. While MLP is a type of neural network architecture that consists of multiple layers of artificial neurons (perceptrons), we will use ```1D convolutional layers (Conv1D)``` for the shared MLP followed by ```Fully-Connected (FC)``` layers in both the Input and Feature Transformation networks. However, we will use only Fully Connected layers for the PointNet after the Feature Transformation network.
+
+Note that the shared MLPs are the ```core feature extraction``` component after the initial alignment and transformation by the Input T-Net and Feature T-Net.
 
 <p align="center">
   <img src="https://github.com/yudhisteer/Classifying-Lego-with-PointNet/assets/59663734/f81e2386-7e43-45a5-b70f-b6d1ab6ae962" width="100%" />
 </p>
 
-In the full architecture of the PointNet, we can clearly see how the Input Transformation Network and the Feature Transformation Network are mini-PointNets themselves.
+In the full architecture of the PointNet, we can clearly see how the Input Transformation Network and the Feature Transformation Network are ```mini-PointNets``` themselves.
 
 
 ------------------------
