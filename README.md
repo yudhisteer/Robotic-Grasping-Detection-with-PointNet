@@ -130,7 +130,7 @@ Since the Input T-Net and Feature T-Net are themselves mini-PointNet, they both 
   <img src="https://github.com/yudhisteer/Classifying-Lego-with-PointNet/assets/59663734/f81e2386-7e43-45a5-b70f-b6d1ab6ae962" width="100%" />
 </p>
 
-
+In the full architecture of the PointNet, we can clearly see how the Input Transformation Network and the Feature Transformation Network are mini-PointNets themselves.
 
 
 ------------------------
