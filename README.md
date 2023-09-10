@@ -485,7 +485,7 @@ def pointnetfeat(x, global_feat=True, feature_transform=True):
 Again with simulated data, we print our results:
 
 ```python
-# Input T-Net...
+# Input Transform...
 Shape initial: torch.Size([32, 3, 2500])
 Shape after Conv1: torch.Size([32, 64, 2500])
 Shape after Conv2: torch.Size([32, 128, 2500])
@@ -503,7 +503,7 @@ Shape after Input T-Net: torch.Size([32, 3, 2500])
 # MLP...
 Shape after Conv1: torch.Size([32, 64, 2500])
 
-# Feature T-Net...
+# Feature Transform...
 Shape initial: torch.Size([32, 64, 2500])
 Shape after Conv1: torch.Size([32, 64, 2500])
 Shape after Conv2: torch.Size([32, 128, 2500])
