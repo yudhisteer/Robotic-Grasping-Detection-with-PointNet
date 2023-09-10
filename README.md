@@ -300,7 +300,6 @@ Similarly, we define the **convolutional layers**, **fully connected layers**, *
 ```python
 # Hyperparameter
 k = 64
-
 ```
 
 ```python
