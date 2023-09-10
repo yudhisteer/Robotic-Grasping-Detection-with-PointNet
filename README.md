@@ -16,9 +16,9 @@
 <a name="up"></a>
 ## 1. Understanding PointNet
 
-Before PointNet, researchers would convert point cloud data into **3D Voxel Grids**. A large portion of these voxel grids can be empty and this makes the data voluminous. 
+Before PointNet, researchers would convert point cloud data into **3D Voxel Grids**. The disadvantages of Voxel Grids are that they lead to **data sparsity** because there are large regions with no points (empty voxels), **increase storage and computation**, **loss of fine-grained details** in the point cloud, and have proven to be **inefficient for irregular data** whereby point clouds are inherently irregular data structures.
 
-PointNet is a neural network architecture designed for processing and understanding point cloud data. The idea behind PointNet is to take in directly the point cloud data such that it respects the ```permutation invariance``` of points in the point cloud data.
+Introducing, ```PointNet``` which is a neural network architecture designed for processing and understanding point cloud data. The idea behind PointNet is to take in **directly** the point cloud data such that it respects the ```permutation invariance``` of points in the point cloud data and thus no longer needs to transform the data into 3D Voxel Grids.
 
 <p align="center">
   <img src="https://github.com/yudhisteer/Deep-Point-Clouds-3D-Perception/assets/59663734/f54fd8a0-901c-4743-ac91-a47303888b70" width="70%" />
