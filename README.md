@@ -528,11 +528,100 @@ The size of our global features is of size ```1024```.
 
 
 ### 2.4 Classification Head
+Lastly, we have the classification head function which will complete the whole classification network architecture of PointNet. First we need to define out output parameter ```k``` which is the number of classes our neural network will predict:
 
+```python
+k = 5 #number of classes to predict
+```
 
+Similarly, we then defined the last MLP layers:
 
+```python
+# Fully Connected Layers
+fc1 = nn.Linear(1024, 512) #input, #output
+fc2 = nn.Linear(512, 256)
+fc3 = nn.Linear(256, k)
+```
 
+```python
+# Batchnorm layers and dropout
+dropout = nn.Dropout(p=0.3)
+bn1 = nn.BatchNorm1d(512)
+bn2 = nn.BatchNorm1d(256)
+```
 
+```python
+# Nonlinearities
+relu = nn.ReLU()
+```
+
+The classification head function:
+
+```python
+def pointnetcls(x, feature_transform=False):
+    print("Classification head...")
+    # PointNetFeat
+    x, trans, trans_feat = pointnetfeat(x, global_feat=True, feature_transform=feature_transform)
+    print("\nShape after PointNetFeat: ", x.shape)
+
+    # FC layers
+    x = F.relu(bn1(fc1(x)))
+    print("Shape after FC1:", x.shape)
+    x = F.relu(bn2(dropout(fc2(x))))
+    print("Shape after FC2:", x.shape)
+    x = fc3(x)
+    print("Shape after FC3:", x.shape)
+
+    return F.log_softmax(x, dim=1), trans, trans_feat
+```
+
+With simulated data, we print the output from the beginning:
+
+```python
+# Input T-Net...
+Shape initial: torch.Size([32, 3, 2500])
+Shape after Conv1: torch.Size([32, 64, 2500])
+Shape after Conv2: torch.Size([32, 128, 2500])
+Shape after Conv3: torch.Size([32, 1024, 2500])
+Shape after Max Pooling: torch.Size([32, 1024, 1])
+Shape after Reshape: torch.Size([32, 1024])
+Shape after FC1: torch.Size([32, 512])
+Shape after FC2: torch.Size([32, 256])
+Shape after FC3: torch.Size([32, 9])
+Shape of Iden: torch.Size([32, 9])
+Shape after Reshape to 3x3: torch.Size([32, 3, 3])
+Shape after Matrix Multiply: torch.Size([32, 2500, 3])
+Shape after Input T-Net: torch.Size([32, 3, 2500])
+
+# MLP...
+Shape after Conv1: torch.Size([32, 64, 2500])
+
+# Feature T-Net...
+Shape initial: torch.Size([32, 64, 2500])
+Shape after Conv1: torch.Size([32, 64, 2500])
+Shape after Conv2: torch.Size([32, 128, 2500])
+Shape after Conv3: torch.Size([32, 1024, 2500])
+Shape after Max Pooling: torch.Size([32, 1024, 1])
+Shape after Reshape: torch.Size([32, 1024])
+Shape after FC1: torch.Size([32, 512])
+Shape after FC2: torch.Size([32, 256])
+Shape after FC3: torch.Size([32, 4096])
+Shape after Matrix Multiply: torch.Size([32, 2500, 64])
+Shape after Feature T-Net: torch.Size([32, 64, 2500]) 
+
+# MLP...
+Shape after Conv2: torch.Size([32, 128, 2500])
+Shape after Conv3: torch.Size([32, 1024, 2500])
+Shape after Pooling: torch.Size([32, 1024, 1])
+Shape of global feature:  torch.Size([32, 1024])
+
+# MLP...
+Shape after FC1: torch.Size([32, 512])
+Shape after FC2: torch.Size([32, 256])
+Shape after FC3: torch.Size([32, 5])
+```
+
+Our output will be **log probabilities**. We will need to **exponentiate** to get probabilities for each point cloud in our batch. We will then select the class with the **highest probability** to classify the point cloud.
 
 
 
