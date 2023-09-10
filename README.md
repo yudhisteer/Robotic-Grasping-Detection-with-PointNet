@@ -399,7 +399,7 @@ Shape after FC3: torch.Size([32, 4096])
 torch.Size([32, 64, 64])
 ```
 
-The output as expected is a ```64 x 64``` matrix.
+The output for the feature T-Net is a ```64 x 64``` matrix.
 
 ### 2.3 PointNet Feat
 Next, we will code a function that will encompass the Input Transform, Feature Transform, and output the **Global Features (1024)**. We will define **wrapper functions** for the input T-Net and feature T-Net. 
