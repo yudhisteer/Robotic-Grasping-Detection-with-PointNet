@@ -497,7 +497,6 @@ Shape after FC2: torch.Size([32, 256])
 Shape after FC3: torch.Size([32, 9])
 Shape of Iden: torch.Size([32, 9])
 Shape after Reshape to 3x3: torch.Size([32, 3, 3])
-Matrix Multiplication...
 Shape after Matrix Multiply: torch.Size([32, 2500, 3])
 Shape after Input T-Net: torch.Size([32, 3, 2500])
 
@@ -514,7 +513,6 @@ Shape after Reshape: torch.Size([32, 1024])
 Shape after FC1: torch.Size([32, 512])
 Shape after FC2: torch.Size([32, 256])
 Shape after FC3: torch.Size([32, 4096])
-Matrix Multiplication...
 Shape after Matrix Multiply: torch.Size([32, 2500, 64])
 Shape after Feature T-Net: torch.Size([32, 64, 2500]) 
 
@@ -523,12 +521,13 @@ Shape after Conv2: torch.Size([32, 128, 2500])
 Shape after Conv3: torch.Size([32, 1024, 2500])
 Shape after Pooling: torch.Size([32, 1024, 1])
 Shape of global feature:  torch.Size([32, 1024])
-```
+``
+
 The size of our global features is of size ```1024```.
 
 
 ### 2.4 Classification Head
-Lastly, we have the classification head function which will complete the whole classification network architecture of PointNet. First we need to define out output parameter ```k``` which is the number of classes our neural network will predict:
+Lastly, we have the classification head function which will complete the whole classification network architecture of PointNet. First, we need to define our output parameter ```k``` which is the **number of classes** our neural network will predict:
 
 ```python
 k = 5 #number of classes to predict
