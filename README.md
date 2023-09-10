@@ -148,7 +148,7 @@ Now that we know how PointNet works, we need to code it. Since it is a big neura
 Note that we are only concerned with **classification** for this project and not **segmentation**. If the latter was considered, we would have a fifth segment called Segmentation Head. 
 
 ### 2.1 Input T-Net
-As explained above, the Input Transform section of PointNet contains a T-Net. We will write a function for the T-Net. Below is the schema for the architecture consisting of 1D Convolutional Layers and Fully Connected layers as shared MLPs. 
+As explained above, the Input Transform section of PointNet contains a T-Net. Below is the schema for the architecture of the T-Net consisting of 1D Convolutional Layers and Fully Connected layers as shared MLPs. 
 
 ```python
 id1[Input Point Cloud] --> id2[Conv1D 64 + BatchNorm + ReLU]
@@ -279,6 +279,7 @@ Shape after Reshape to 3x3: torch.Size([32, 3, 3])
 ```
 
 ### 2.2 Feature T-Net
+As explained above, the Feature T-Net is similar to the Input T-Net except that the output is now a ```64 x 64``` matrix.  Below is the schema of its architecture:
 
 
 ```python
@@ -294,6 +295,107 @@ id17 --> id18[Add Identity]
 id18 --> id19[Reshape k x k]
 id19 --> id20[Output Transform]
 ```
+Similarly, we define the **convolutional layers**, **fully connected layers**, **activation function**, and **batch normalization layers** needed. I defined a parameter k to be equal to the input size of the layer for the T-Net which is equal to ```64```. 
+
+```python
+# Hyperparameter
+k = 64
+
+```
+
+```python
+# Conv layers
+conv1 = nn.Conv1d(k, 64, 1) #input, #output, # size of the convolutional kernel
+conv2 = nn.Conv1d(64, 128, 1)
+conv3 = nn.Conv1d(128, 1024, 1)
+```
+
+```python
+# Fully connected layers
+fc1 = nn.Linear(1024, 512) #input, #output
+fc2 = nn.Linear(512, 256)
+fc3 = nn.Linear(256, k * k)
+```
+
+```python
+# Nonlinearities
+relu = nn.ReLU()
+```
+
+```python
+# Batch normalization layers
+bn1 = nn.BatchNorm1d(64)
+bn2 = nn.BatchNorm1d(128)
+bn3 = nn.BatchNorm1d(1024)
+bn4 = nn.BatchNorm1d(512)
+bn5 = nn.BatchNorm1d(256)
+```
+
+Note that the output of the input T-Net is ```3 x 3``` (before matrix multiplication) but the input of the feature T-Net is ```n x 64```. We have a shared MLP in order to convert the layer to the correct size before the feature transformation. Below is the function of the Feature T-Net:
+
+```python
+def stnkd(x):
+    print("Feature T-Net...")
+
+    batchsize = x.size()[0]
+    print("Shape initial:", x.shape)
+
+    # Conv layers
+    x = F.relu(bn1(conv1(x)))
+    print("Shape after Conv1:", x.shape)
+
+    x = F.relu(bn2(conv2(x)))
+    print("Shape after Conv2:", x.shape)
+
+    x = F.relu(bn3(conv3(x)))
+    print("Shape after Conv3:", x.shape)
+
+    # Pooling
+    x = torch.max(x, 2, keepdim=True)[0]
+    print("Shape after Max Pooling:", x.shape)
+
+    # Reshape for FC layers
+    x = x.view(-1, 1024)
+    print("Shape after Reshape:", x.shape)
+
+    # FC layers
+    x = F.relu(bn4(fc1(x)))
+    print("Shape after FC1:", x.shape)
+
+    x = F.relu(bn5(fc2(x)))
+    print("Shape after FC2:", x.shape)
+
+    x = fc3(x)
+    print("Shape after FC3:", x.shape)
+
+    # Initialize identity
+    iden = Variable(torch.from_numpy(np.eye(k).flatten().astype(np.float32))).view(1, k * k).repeat(batchsize, 1)
+    if x.is_cuda:
+        iden = iden.cuda()
+
+    # Add identity
+    x = x + iden
+    x = x.view(-1, k, k)
+
+    return x
+```
+
+Similarly, we created a simulated data but this time with ```64``` channels and print the results:
+
+```python
+Shape initial: torch.Size([32, 64, 2500])
+Shape after Conv1: torch.Size([32, 64, 2500])
+Shape after Conv2: torch.Size([32, 128, 2500])
+Shape after Conv3: torch.Size([32, 1024, 2500])
+Shape after Max Pooling: torch.Size([32, 1024, 1])
+Shape after Reshape: torch.Size([32, 1024])
+Shape after FC1: torch.Size([32, 512])
+Shape after FC2: torch.Size([32, 256])
+Shape after FC3: torch.Size([32, 4096])
+torch.Size([32, 64, 64])
+```
+
+The output as expected is a ```64 x 64``` matrix.
 
 ### 2.3 PointNet Feature
 
