@@ -138,8 +138,17 @@ In the full architecture of the PointNet, we can clearly see how the Input Trans
 ------------------------
 <a name="cp"></a>
 ## 2. Coding PointNet
+Now that we know how PointNet works, we need to code it. Since it is a big neural network architecture, we will divide it into four segments:
+
+1. Input T-Net
+2. Feature T-Net
+3. PointNet Feat
+4. Classification Head
+
+Note that we are only concerned with **classification** for this project and not **segmentation**. If the latter was considered, we would have a fifth segment called Segmentation Head. 
 
 ### 2.1 Input T-Net
+As explained above, the Input Transform section of PointNet contains a T-Net. We will write a function for the T-Net. Below is the schema for the architecture consisting of 1D Convolutional Layers and Fully Connected layers as shared MLPs. 
 
 ```python
 id1[Input Point Cloud] --> id2[Conv1D 64 + BatchNorm + ReLU]
@@ -156,13 +165,7 @@ id11 --> id12[Output Transform Matrix]
 ```
 
 
-
-
-
-
-
-
-
+We first define the **convolutional layers**, **fully connected layers**, **activation function**, and **batch normalization layers** needed:
 
 ```python
 # Conv layers
@@ -192,8 +195,10 @@ bn4 = nn.BatchNorm1d(512)
 bn5 = nn.BatchNorm1d(256)
 ```
 
+The **function** for T-Net:
+
 ```python
-def stn3d(x):
+def input_tnet(x):
     # Input shape
     batchsize = x.size()[0]
     print("Shape initial:", x.shape)
@@ -245,7 +250,19 @@ def stn3d(x):
 
 ```
 
+We will create simulated data for the point cloud with the following parameters:
 
+- batch size = ```32```
+- number of points = ```2500```
+- number of channels (x,y,z) = ```3```
+
+```python
+    # Generate a sample input tensor (N, 3, 2500)
+    sample_input = torch.randn(32, 3, 2500)
+```
+
+
+Below is the size of the layers after each process. The shape of the layer after T-Net and before matrix multiplication is a ```3 x 3``` matrix.
 
 
 ```python
@@ -278,10 +295,7 @@ id18 --> id19[Reshape k x k]
 id19 --> id20[Output Transform]
 ```
 
-
-
-
-### 2.3 PointNet Feat
+### 2.3 PointNet Feature
 
 
 
