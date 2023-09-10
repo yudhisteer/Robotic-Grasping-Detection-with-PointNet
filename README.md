@@ -265,7 +265,7 @@ We will create simulated data for the point cloud with the following parameters:
 ```
 
 
-Below is the size of the layers after each process. The shape of the layer after T-Net and before matrix multiplication is a ```3 x 3``` matrix.
+Below is the size of the layers after each process. 
 
 
 ```python
@@ -280,6 +280,8 @@ Shape after FC2: torch.Size([32, 256])
 Shape after FC3: torch.Size([32, 9])
 Shape after Reshape to 3x3: torch.Size([32, 3, 3])
 ```
+
+The shape of the layer after T-Net and before matrix multiplication is a ```3 x 3``` matrix.
 
 ### 2.2 Feature T-Net
 As explained above, the Feature T-Net is similar to the Input T-Net except that the output is now a ```64 x 64``` matrix.  Below is the schema of its architecture:
