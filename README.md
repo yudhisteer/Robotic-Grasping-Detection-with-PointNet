@@ -334,7 +334,7 @@ bn5 = nn.BatchNorm1d(256)
 Note that the output of the input T-Net is ```3 x 3``` (before matrix multiplication) but the input of the feature T-Net is ```n x 64```. We have a shared MLP in order to convert the layer to the correct size before the feature transformation. Below is the function of the Feature T-Net:
 
 ```python
-def stnkd(x):
+def feature_tnet(x):
     print("Feature T-Net...")
 
     batchsize = x.size()[0]
@@ -397,16 +397,137 @@ torch.Size([32, 64, 64])
 
 The output as expected is a ```64 x 64``` matrix.
 
-### 2.3 PointNet Feature
+### 2.3 PointNet Feat
+Next, we will code a function that will encompass the Input Transform, Feature Transform, and output the **Global Features (1024)**. We will define **wrapper functions** for the input T-Net and feature T-Net. 
 
+```python
+# Input T-Net
+def stn(x): #wrapper function
+    return input_tnet(x)
 
+# Feature T-Net
+def fstn(x):
+    return feature_tnet(x)
+```
 
+Once again, our shared MLPs will consist of **1D Convolutional layers**.
+
+```python
+# Convolution layers
+conv1 = nn.Conv1d(3, 64, 1) #input, #output, # size of the convolutional kernel
+conv2 = nn.Conv1d(64, 128, 1)
+conv3 = nn.Conv1d(128, 1024, 1)
+
+# Batchnorm layers
+bn1 = nn.BatchNorm1d(64)
+bn2 = nn.BatchNorm1d(128)
+bn3 = nn.BatchNorm1d(1024)
+```
+
+The PointNet Feat function:
+
+```python
+def pointnetfeat(x, global_feat=True, feature_transform=True):
+    # Number of points
+    n_pts = x.size()[2]
+    print("Shape initial:", x.shape, '\n')
+
+    # Apply Input T-Net
+    trans = stn(x) #torch.Size([32, 3, 3])
+    x = x.transpose(2, 1) #torch.Size([32, 2500, 3])
+    x = torch.bmm(x, trans)
+    print("Shape after Matrix Multiply:", x.shape)
+    x = x.transpose(2, 1)
+    print("Shape after Input T-Net:", x.shape) #torch.Size([32, 3, 2500])
+
+    # Conv layers
+    x = F.relu(bn1(conv1(x)))
+    print("Shape after Conv1:", x.shape)
+
+    # Apply Feature T-Net
+    if feature_transform:
+        print("\nApply Feature T-Net...", '\n')
+        trans_feat = fstn(x) #torch.Size([32, 64, 64])
+        x = x.transpose(2, 1) #torch.Size([32, 2500, 64])
+        x = torch.bmm(x, trans_feat)
+        print("Shape after Matrix Multiply:", x.shape)
+        x = x.transpose(2, 1)
+        print("Shape after Feature T-Net:", x.shape, '\n') #torch.Size([32, 64, 2500])
+    else:
+        trans_feat = None
+
+    # Save point features
+    pointfeat = x
+
+    # Remaining conv layers
+    x = F.relu(bn2(conv2(x)))
+    print("Shape after Conv2:", x.shape)
+
+    x = bn3(conv3(x))
+    print("Shape after Conv3:", x.shape)
+
+    # Pooling
+    x = torch.max(x, 2, keepdim=True)[0]
+    print("Shape after Pooling:", x.shape)
+
+    # Global Feature
+    x = x.view(-1, 1024)
+    print("Shape of global feature: ", x.shape)
+
+    # Return
+    if global_feat:
+        return x, trans, trans_feat
+    else:
+        x = x.view(-1, 1024, 1).repeat(1, 1, n_pts)
+        return torch.cat([x, pointfeat], 1), trans, trans_feat
+```
+
+Again with simulated data, we print our results:
+
+```python
+# Input T-Net...
+Shape initial: torch.Size([32, 3, 2500])
+Shape after Conv1: torch.Size([32, 64, 2500])
+Shape after Conv2: torch.Size([32, 128, 2500])
+Shape after Conv3: torch.Size([32, 1024, 2500])
+Shape after Max Pooling: torch.Size([32, 1024, 1])
+Shape after Reshape: torch.Size([32, 1024])
+Shape after FC1: torch.Size([32, 512])
+Shape after FC2: torch.Size([32, 256])
+Shape after FC3: torch.Size([32, 9])
+Shape of Iden: torch.Size([32, 9])
+Shape after Reshape to 3x3: torch.Size([32, 3, 3])
+Matrix Multiplication...
+Shape after Matrix Multiply: torch.Size([32, 2500, 3])
+Shape after Input T-Net: torch.Size([32, 3, 2500])
+
+# MLP...
+Shape after Conv1: torch.Size([32, 64, 2500])
+
+# Feature T-Net...
+Shape initial: torch.Size([32, 64, 2500])
+Shape after Conv1: torch.Size([32, 64, 2500])
+Shape after Conv2: torch.Size([32, 128, 2500])
+Shape after Conv3: torch.Size([32, 1024, 2500])
+Shape after Max Pooling: torch.Size([32, 1024, 1])
+Shape after Reshape: torch.Size([32, 1024])
+Shape after FC1: torch.Size([32, 512])
+Shape after FC2: torch.Size([32, 256])
+Shape after FC3: torch.Size([32, 4096])
+Matrix Multiplication...
+Shape after Matrix Multiply: torch.Size([32, 2500, 64])
+Shape after Feature T-Net: torch.Size([32, 64, 2500]) 
+
+# MLP...
+Shape after Conv2: torch.Size([32, 128, 2500])
+Shape after Conv3: torch.Size([32, 1024, 2500])
+Shape after Pooling: torch.Size([32, 1024, 1])
+Shape of global feature:  torch.Size([32, 1024])
+```
+The size of our global features is of size ```1024```.
 
 
 ### 2.4 Classification Head
-
-
-### 2.5 Segmentation Head
 
 
 
