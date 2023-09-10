@@ -521,7 +521,7 @@ Shape after Conv2: torch.Size([32, 128, 2500])
 Shape after Conv3: torch.Size([32, 1024, 2500])
 Shape after Pooling: torch.Size([32, 1024, 1])
 Shape of global feature:  torch.Size([32, 1024])
-``
+```
 
 The size of our global features is of size ```1024```.
 
@@ -533,7 +533,7 @@ Lastly, we have the classification head function which will complete the whole c
 k = 5 #number of classes to predict
 ```
 
-Similarly, we then defined the last MLP layers:
+Similarly, we then defined the last shared MLP which consist of only Fully Connected layers :
 
 ```python
 # Fully Connected Layers
@@ -577,7 +577,7 @@ def pointnetcls(x, feature_transform=False):
 With simulated data, we print the output from the beginning:
 
 ```python
-# Input T-Net...
+# Input Transform...
 Shape initial: torch.Size([32, 3, 2500])
 Shape after Conv1: torch.Size([32, 64, 2500])
 Shape after Conv2: torch.Size([32, 128, 2500])
@@ -595,7 +595,7 @@ Shape after Input T-Net: torch.Size([32, 3, 2500])
 # MLP...
 Shape after Conv1: torch.Size([32, 64, 2500])
 
-# Feature T-Net...
+# Feature Transform...
 Shape initial: torch.Size([32, 64, 2500])
 Shape after Conv1: torch.Size([32, 64, 2500])
 Shape after Conv2: torch.Size([32, 128, 2500])
