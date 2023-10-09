@@ -1,4 +1,4 @@
-# Classifying Lego with PointNet
+# Classifying ASL with PointNet
 
 ## Problem Statement
 
