@@ -9,7 +9,7 @@
 ## Plan of Action
 1. [Understanding PointNet](#up)
 2. [Coding PointNet](#cp)
-3. [Training with ShapeNet Dataset](#tsd)
+3. [Data Collection with Polycam](#dc)
 4. [Training with Custom Dataset](#tcd)
 
 -----------------
@@ -629,8 +629,8 @@ Our output will be **log probabilities**. We will need to **exponentiate** to ge
 
 
 ------------------------
-<a name="tsd"></a>
-## 3. Training with ShapeNet Dataset
+<a name="dc"></a>
+## 3. Data Collection with Polycam
 
 ------------------------
 <a name="tcd"></a>
