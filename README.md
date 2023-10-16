@@ -61,9 +61,11 @@ Point 7: (1, 0, 1) # Previously point 6
 Point 8: (0, 0, 1) # Previously point 5
 ```
 
-![unnamed](https://github.com/yudhisteer/Classifying-ASL-with-PointNet/assets/59663734/c8c3c36d-0c73-4367-be3c-59883b3f1213)
+Let's try to visualize it:
 
-
+<p align="center">
+  <img src="https://github.com/yudhisteer/Classifying-ASL-with-PointNet/assets/59663734/07cb1632-4e7b-469b-b509-e6e05f75411e" width="30%" />
+</p>
 
 
 Although the order of the points has changed, the ```spatial relationships``` between the points and the overall structure of the cube **remain the same**. It's about recognizing that the order of points in a point cloud **doesn't change** the ```underlying geometry``` or content being represented.
