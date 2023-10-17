@@ -61,9 +61,12 @@ Point 7: (1, 0, 1) # Previously point 6
 Point 8: (0, 0, 1) # Previously point 5
 ```
 
-Let's try to visualize it:
+Let's try to visualize it. Below is an example of an image (left) whose pixel grids are shuffled randomly with others. We observe that the original shape in the image is no longer retained. On the right, we have the point cloud data of a cube and when the points are shuffled randomly, we can still observe the original shape- a cube.
+
+ 
 
 <p align="center">
+  <img src="https://github.com/yudhisteer/Classifying-ASL-with-PointNet/assets/59663734/96b1b214-86ba-473e-9afb-b420a31fbfbf" width="30%" />
   <img src="https://github.com/yudhisteer/Classifying-ASL-with-PointNet/assets/59663734/07cb1632-4e7b-469b-b509-e6e05f75411e" width="30%" />
 </p>
 
