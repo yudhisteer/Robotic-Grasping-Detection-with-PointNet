@@ -2,7 +2,13 @@
 
 ## Problem Statement
 
+![Untitled video - Made with Clipchamp](https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/2eccede5-8b00-4b91-99bd-fe5998b237bf)
+
+
 ## Dataset
+
+![Untitled video - Made with Clipchamp (1)](https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/daeca668-1135-4c86-b83f-57e5ee29b6a6)
+
 
 ## Abstract
 
