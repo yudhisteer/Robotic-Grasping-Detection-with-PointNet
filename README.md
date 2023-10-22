@@ -2,15 +2,23 @@
 
 ## Problem Statement
 
-![Untitled video - Made with Clipchamp](https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/2eccede5-8b00-4b91-99bd-fe5998b237bf)
+<p align="center">
+  <img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/a42db359-e6d8-4d5a-ab09-d7b0d0b3933e" width="49%" />
+  <img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/daeca668-1135-4c86-b83f-57e5ee29b6a6" width="49%" />
+</p>
 
 
 ## Dataset
 
-![Untitled video - Made with Clipchamp (1)](https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/daeca668-1135-4c86-b83f-57e5ee29b6a6)
 
 
 ## Abstract
+
+<p align="center">
+  <img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/2eccede5-8b00-4b91-99bd-fe5998b237bf" width="70%" />
+</p>
+
+
 
 ## Plan of Action
 1. [Understanding PointNet](#up)
