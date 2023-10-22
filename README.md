@@ -1,4 +1,4 @@
-# Classifying ASL with PointNet
+# Robotic Grasping Detection with PointNet
 
 ## Problem Statement
 
