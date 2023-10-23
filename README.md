@@ -675,6 +675,32 @@ Our output will be **log probabilities**. We will need to **exponentiate** to ge
 https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/8426310b-8ad8-4e15-b306-b459fccd5f58
 
 
+<table>
+  <tr>
+    <td><img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/fdbce21e-b572-4226-a601-e3cb04cd1931" alt="Image 1" width="547"></td>
+    <td><img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/0f7bd8af-20a8-4008-8b0a-44e43a3caf66" alt="Image 2" width="543"></td>
+    <td><img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/6ff6468b-0dd7-479a-87e6-27ebfdeab586" alt="Image 3" width="548"></td>
+    <td><img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/01a6a721-173d-48b1-9729-41278c7346b3" alt="Image 4" width="503"></td>
+    <td><img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/3bdddf74-2562-417f-9207-c626ec9bc93b" alt="Image 5" width="502"></td>
+  </tr>
+</table>
+
+
+
+
+
+<table>
+  <tr>
+    <td><img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/f754a495-9090-4764-9ebd-21db414703e2" alt="Image 1" width="550"></td>
+    <td><img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/fc78235a-8def-4cfb-b96b-c041d8334508" alt="Image 2" width="484"></td>
+    <td><img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/d4ba5c75-72df-4aba-b2a3-1d40e67b4437" alt="Image 3" width="526"></td>
+    <td><img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/55d5041a-46f4-4887-b6e5-cacbd62df288" alt="Image 4" width="518"></td>
+    <td><img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/72b5196a-683d-48d1-aed2-c1bcca525706" alt="Image 5" width="447"></td>
+  </tr>
+</table>
+
+
+
 
 ------------------------
 <a name="dls"></a>
