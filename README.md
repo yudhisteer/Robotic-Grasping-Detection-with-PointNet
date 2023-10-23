@@ -699,6 +699,18 @@ https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59
   </tr>
 </table>
 
+<table>
+  <tr>
+    <td><img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/7428cde4-255a-42c2-8890-0c2bc512a812" alt="Image 1" width="439"></td>
+    <td><img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/2eb1242b-c301-4a69-b7c5-66bc2a265a55" alt="Image 2" width="532"></td>
+    <td><img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/f8c4e0bc-d80b-46b3-ac81-86762031c6c5" alt="Image 3" width="472"></td>
+    <td><img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/69eed6d8-0143-483d-90a5-dc371014e6ec" alt="Image 4" width="541"></td>
+    <td><img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/2d0609c2-8f40-4e0c-b362-cbfd358165e4" alt "Image 5" width="530"></td>
+  </tr>
+</table>
+
+
+
 
 
 
