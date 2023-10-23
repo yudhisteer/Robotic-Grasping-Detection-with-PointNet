@@ -13,6 +13,13 @@ In the field of robotics, extensive research has been dedicated to teaching robo
 
 ## Dataset
 
+1. [ShapeNet](https://shapenet.org/)
+
+    - **ShapeNetCore** is a subset of ShapeNet, featuring ```51,300``` meticulously verified 3D models spanning ```55``` common object categories, including the ```12``` from PASCAL 3D+.
+
+   - **ShapeNetSem** is a more compact subset, containing ```12,000``` models across ```270``` categories, each extensively annotated with real-world dimensions, material composition estimates, and volume and weight approximations at the category level.
+
+2. Custom
 
 
 ## Abstract
