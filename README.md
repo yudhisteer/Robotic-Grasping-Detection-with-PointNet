@@ -672,9 +672,16 @@ Our output will be **log probabilities**. We will need to **exponentiate** to ge
 <a name="dpo"></a>
 ## 4 Data Pre-processing with Open3D
 
+### 4.1 Segmentation
 https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/8426310b-8ad8-4e15-b306-b459fccd5f58
 
 
+
+
+
+### 4.2 Data Augmentation
+
+#### 4.2.1 Random Noise
 <table>
   <tr>
     <td><img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/fdbce21e-b572-4226-a601-e3cb04cd1931" alt="Image 1" width="547"></td>
@@ -688,7 +695,7 @@ https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59
 
 
 
-
+#### 4.2.2 Random Sampling
 <table>
   <tr>
     <td><img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/f754a495-9090-4764-9ebd-21db414703e2" alt="Image 1" width="550"></td>
@@ -698,6 +705,8 @@ https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59
     <td><img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/72b5196a-683d-48d1-aed2-c1bcca525706" alt="Image 5" width="447"></td>
   </tr>
 </table>
+
+#### 4.2.2 Random Deformation
 
 <table>
   <tr>
