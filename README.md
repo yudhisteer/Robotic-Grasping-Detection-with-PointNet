@@ -34,8 +34,9 @@ In the field of robotics, extensive research has been dedicated to teaching robo
 1. [Understanding PointNet](#up)
 2. [Coding PointNet](#cp)
 3. [Data Collection with Polycam](#dc)
-4. [Data Labeling with Segments.ai](#dls)
-5. [Training & Evaluation](#te)
+4. [Data Pre-processing with Open3D](#dpo)
+5. [Data Labeling with Segments.ai](#dls)
+6. [Training & Evaluation](#te)
 
 -----------------
 <a name="up"></a>
@@ -668,12 +669,31 @@ Our output will be **log probabilities**. We will need to **exponentiate** to ge
 ## 3. Data Collection with Polycam
 
 ------------------------
+<a name="dpo"></a>
+## 4 Data Pre-processing with Open3D
+
+https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/8426310b-8ad8-4e15-b306-b459fccd5f58
+
+
+
+------------------------
 <a name="dls"></a>
-## 4. Data Labeling with Segments.ai
+## 5. Data Labeling with Segments.ai
+
+
+
+
+
+https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/83fbcfab-c315-4f53-9e53-7430ac9e0a1e
+
+
+
+
+
 
 ------------------------
 <a name="te"></a>
-## 5. Training & Evaluation
+## 6. Training & Evaluation
 
 -------------------
 
