@@ -27,7 +27,8 @@ However, when it comes to robots, years of research has
 1. [Understanding PointNet](#up)
 2. [Coding PointNet](#cp)
 3. [Data Collection with Polycam](#dc)
-4. [Training with Custom Dataset](#tcd)
+4. [Data Labeling with Segments.ai](#dls)
+5. [Training & Evaluation](#te)
 
 -----------------
 <a name="up"></a>
@@ -660,9 +661,16 @@ Our output will be **log probabilities**. We will need to **exponentiate** to ge
 ## 3. Data Collection with Polycam
 
 ------------------------
-<a name="tcd"></a>
-## 4. Training with Custom Dataset
+<a name="dls"></a>
+## 4. Data Labeling with Segments.ai
 
+------------------------
+<a name="te"></a>
+## 5. Training & Evaluation
+
+-------------------
+
+## Conclusion
 -------------------
 
 ## References
