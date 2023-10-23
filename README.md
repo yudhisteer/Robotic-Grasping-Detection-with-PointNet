@@ -1,9 +1,9 @@
 # Robotic Grasping Detection with PointNet
 
 ## Problem Statement
-I have always been amazed by how quickly we can analyze what is the correct way to hold an object. As it is simple prowess, we often take this skill for granted. We are conditioned to grab our toothbrush by the handle and not the bristle, we know not to grab a knife by its sharp edge, and we also know there is no single universally correct way to grab a ball. A child typically starts developing the ability to grasp objects in the first few months of life and by 1 year old, the child is able to master the ```"pincer grasp"``` which is the use of the thumb and forefinger to pick up small objects. 
+I have always been amazed by how quickly we can analyze what is the correct way to **hold an object**. As it is simple prowess, we often take this skill for granted. We are conditioned to grab our toothbrush by the handle and not the bristle, we know not to grab a knife by its sharp edge, and we also know there is no single universally correct way to grab a ball. A child typically starts developing the ability to grasp objects in the first few months of life and by 1 year old, the child is able to master the ```"pincer grasp"``` which is the use of the thumb and forefinger to pick up small objects. 
 
-However, when it comes to robots, years of research has
+In the field of robotics, extensive research has been dedicated to teaching robots how to grasp objects, employing methods like **supervised**, **semi-supervised**, and **reinforcement learning**. Grasping objects poses a **complex** and **computationally intensive** challenge, especially in **real-time operations**. This project's focus is not on programming a robotic hand to physically grasp objects, but rather on determining **where to grasp them**. Similar to how humans learn to identify handles on objects, our goal is to train robots to recognize **optimal grasping points** on a specific set of objects, allowing them to apply this knowledge to **new objects**.
 
 <p align="center">
   <img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/a42db359-e6d8-4d5a-ab09-d7b0d0b3933e" width="49%" />
