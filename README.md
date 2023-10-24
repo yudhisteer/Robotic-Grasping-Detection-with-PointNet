@@ -670,7 +670,7 @@ Our output will be **log probabilities**. We will need to **exponentiate** to ge
 
 ------------------------
 <a name="dpo"></a>
-## 4 Data Pre-processing with Open3D
+## 4. Data Pre-processing with Open3D
 After data collection, the next crucial step is data pre-processing before we move on to the labeling phase. Our current dataset consists of raw data that includes outliers and extraneous information, and our priority is to clean the data before labeling it.
 
 ### 4.1 Segmentation
