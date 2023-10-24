@@ -671,9 +671,26 @@ Our output will be **log probabilities**. We will need to **exponentiate** to ge
 ------------------------
 <a name="dpo"></a>
 ## 4 Data Pre-processing with Open3D
+After data collection, the next crucial step is data pre-processing before we move on to the labeling phase. Our current dataset consists of raw data that includes outliers and extraneous information, and our priority is to clean the data before labeling it.
 
 ### 4.1 Segmentation
-https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/8426310b-8ad8-4e15-b306-b459fccd5f58
+We are interested only in the cup or the object of interest hence, we do not need the ground plane in our point cloud. How can we remove this? In my previous project [Point Clouds: 3D Perception
+](https://github.com/yudhisteer/Point-Clouds-3D-Perception), I talk about how to segment the road and the vehicles using RANSAC. The latter algorithm is widely used as a way to remove outliers from our data. As such, this is exactly what we need. The ground plane is the outlier here. 
+
+In our scenario, we choose ransac_n equal to ```3```, which is the number of points to randomly sample for each iteration of RANSAC, and num_iterations equal to ```100``` which is the number of RANSAC iterations to perform. We also fine-tuned our distance_threshold to ```0.005```.
+
+```python
+    ### ------- SEGMENTATION
+    outlier_cloud, inlier_cloud, = ransac(point_cloud, distance_threshold=0.005, ransac_n=3, num_iterations=100)
+```
+
+The variable **outlier_cloud** now represents the ground plane as shown in blue below while the variable **inlier_cloud** represents the cup in red. We save inlier_cloud (cup) as a PLY file and perform the same operation for all data.
+
+
+<div style="text-align: center;">
+  <video src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/8426310b-8ad8-4e15-b306-b459fccd5f58" controls="controls" style="max-width: 730px;">
+  </video>
+</div>
 
 
 
