@@ -673,9 +673,9 @@ Our output will be **log probabilities**. We will need to **exponentiate** to ge
 ## 4. Data Pre-processing with Open3D
 After data collection, the next crucial step is data pre-processing before we move on to the labeling phase. Our current dataset consists of raw data that includes outliers and extraneous information, and our priority is to clean the data before labeling it.
 
-### 4.1 Segmentation
+### 4.1 Segmentation with RANSAC
 We are interested only in the cup or the object of interest hence, we do not need the ground plane in our point cloud. How can we remove this? In my previous project [Point Clouds: 3D Perception
-](https://github.com/yudhisteer/Point-Clouds-3D-Perception), I talk about how to segment the road and the vehicles using RANSAC. The latter algorithm is widely used as a way to remove outliers from our data. As such, this is exactly what we need. The ground plane is the outlier here. 
+](https://github.com/yudhisteer/Point-Clouds-3D-Perception), I talk about how to segment the road and the vehicles using **RANSAC**. The latter algorithm is widely used as a way to **remove outliers** from our data. As such, this is exactly what we need. The ground plane is the outlier here. 
 
 In our scenario, we choose ransac_n equal to ```3```, which is the number of points to randomly sample for each iteration of RANSAC, and num_iterations equal to ```100``` which is the number of RANSAC iterations to perform. We also fine-tuned our distance_threshold to ```0.005```.
 
@@ -697,8 +697,19 @@ The variable **outlier_cloud** now represents the ground plane as shown in blue 
 
 
 ### 4.2 Data Augmentation
+Note that we have three object classes and we have around ```10``` point clouds for each class. In summary, we have a very limited dataset. Of course, we can still collect more data however, this will take a long time and will require more objects to scan. I have a finite number of cups in my house!
+
+Similar to how we do data augmentation on our images - ```rotation```, ```blurring```, ```brightness adjusting```, and so on - we can do the same on the point cloud. However, there is a catch. We cannot do a ```rotation```, ```translation```, or ```reflection``` operation on our point cloud, as the PointNet is **invariant** to **rigid transformation** as explained above. Recall, that the **Input T-Net** will align  the input point cloud to a ```canonical space```.  Below we will describe three examples of data augmentation that we can do.
 
 #### 4.2.1 Random Noise
+Given our point cloud, we will add a little **jitter** on each point. That is, we will randomly sample **noise** from a **Normal Distribution** and add it to the original point cloud. This will make each point shift a little bit from its original position. We perform the operation for how many 'new' samples we want to create. 
+
+
+```python
+    ### ----- Data Augmentation: Noise
+    augmentation_noise(outlier_cloud, num_augmented_samples=5, noise_level=0.0025, save=None)
+```
+
 <table>
   <tr>
     <td><img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/fdbce21e-b572-4226-a601-e3cb04cd1931" alt="Image 1" width="547"></td>
