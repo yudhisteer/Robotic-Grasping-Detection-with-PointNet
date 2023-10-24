@@ -724,6 +724,20 @@ Given our point cloud, we will add a little **jitter** on each point. That is, w
 
 
 #### 4.2.2 Random Sampling
+The point cloud for this cup has around ```10,000``` points. We will first generate a random number between ```1000``` and ```5000``` which will represent the number of points we want to sample from our original point cloud. We will then sample indices with range: ```[min=num_points_to_sample, max=len(point_cloud.points)]``` using ```np.random.choice()```. With these indices, we will filter out the points from the original point cloud and create a new point cloud - ```sampled_point_cloud```. Similarly, we run the code in a loop depending on how many 'new' samples we want to create. 
+
+
+
+
+
+```python
+    ### ----- Data Augmentation: Random Sampling
+    augmentation_sampling(outlier_cloud, num_augmented_samples=5, min_points_to_sample=1000, max_points_to_sample=5000, save=None)
+```
+
+
+
+
 <table>
   <tr>
     <td><img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/f754a495-9090-4764-9ebd-21db414703e2" alt="Image 1" width="550"></td>
