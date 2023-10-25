@@ -815,7 +815,7 @@ Below is a video of how we label points with the brush tool:
 
 https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/83fbcfab-c315-4f53-9e53-7430ac9e0a1e
 
-
+After we label all our objects, we click on the "export" button and a JSON file will be downloaded which consists of all our objects id, points coordinates, reflectivity value, and segmentation label.
 
 
 
