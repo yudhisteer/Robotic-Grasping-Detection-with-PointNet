@@ -7,7 +7,7 @@ from pathlib import Path
 import os
 from torch.utils.data import DataLoader
 
-# Function to check number of images in parent folder and subfolder
+# Function to check number of files in parent folder and subfolder
 def check_directory(parent_folder):
     for filepath, directories, filenames in os.walk(parent_folder):
         print(f"There are {len(directories)} directories and {len(filenames)} files in '{filepath}'.")
@@ -51,7 +51,7 @@ def read_pointnet_colors(seg_labels):
     return colors
 
 
-
+# Function to visualize point cloud with segmentation label
 def visualize_custom_point_cloud(points):
     test_cloud = open3d.geometry.PointCloud()
     test_cloud.points = open3d.utility.Vector3dVector(points)
@@ -76,7 +76,7 @@ class ImageFolderCustom(Dataset):
         self.classification = classification
 
 
-    # 4. Make function to load images
+    # 3. Make function to load point cloud
     def load_point_cloud(self, index: int, show:bool):
         "Opens an point cloud via a path and returns it."
         point_cloud_path = self.pcd[index]
@@ -87,6 +87,7 @@ class ImageFolderCustom(Dataset):
             open3d.visualization.draw_geometries([point_cloud])
         return point_cloud
 
+    # 4. Make function to load segmentation label
     def load_segmentation(self, index: int):
         "Opens a segmentation label file via a path and returns it."
         seg_path = self.seg[index]
@@ -102,12 +103,12 @@ class ImageFolderCustom(Dataset):
         # print(seg_tensor)
         return seg_tensor
 
-
+    # 5. Overwrite the __len__() method
     def __len__(self) -> int:
         "Returns the total number of samples."
         return len(self.points)
 
-    # 6. Overwrite the __getitem__() method (required for subclasses of torch.utils.data.Dataset)
+    # 6. Overwrite the __getitem__() method
     def __getitem__(self, index: int):
         "Returns one sample of data, data and label (X, y)."
 
