@@ -749,6 +749,12 @@ The point cloud for this cup has around ```10,000``` points. We will first gener
 </table>
 
 #### 4.2.2 Random Deformation
+The last data augmentation we will do is to deform our point cloud about an axis. We randomly select a **bending angle** between ```10``` and ```15``` degrees. We then randomly select a point in the point cloud as the **bending axis**. We generate a **rotation matrix** using that bending axis and the bending angle. We then apply that rotation matrix to the point cloud. The result can be a bit **noisy** as shown below.
+
+```python
+    ### ----- Data Augmentation: Random Deformation
+    augmentation_deformation(outlier_cloud, num_augmented_samples=5, min_bending_angle=10.0, max_bending_angle=15.0)
+```
 
 <table>
   <tr>
@@ -768,10 +774,44 @@ The point cloud for this cup has around ```10,000``` points. We will first gener
 ------------------------
 <a name="dls"></a>
 ## 5. Data Labeling with Segments.ai
+For labeling, I chose the platform [Segments.ai](https://segments.ai/) which is a multi-sensor labeling platform for robotics and autonomous vehicles. I find it to be pretty user-friendly and you get ```14``` days trial. 
 
+1. We start by creating an **account** and then a **new dataset**.
+2. We will be asked to **name** the dataset.
+3. We chose the data type to be **Point Cloud** from a list of Text, Image, and Point Cloud.
+4. We select the task to be **Segmentation** among Keypoints, Bounding Box, Vector Labels, and Segmentation.
+5. We will then need to upload our files in the format of .pcd, .bin or .ply.
+   
+<table>
+  <tr>
+    <td>
+      <img width="479" alt="image" src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/69f25183-2758-4e88-8c67-0d37ad0a6047">
+    </td>
+    <td>
+      <img width="411" alt="image" src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/bf48bcba-9755-40d1-93ec-147cdeec6162">
+    </td>
+  </tr>
+</table>
 
+6. In the settings tab we can add the labeling **categories**. For each category, there is an **id**, a **name** and a **color** associated with it.
+7. We click on "**Start Labeling**".
+8. A new window will open whereby we have the **side**, **top**, **back**, and **3D** view of our object.
+9. We choose the "**Brush**" tool on the left to start selecting the points we want to label as "**Handle**".
+10. We press ```spacebar``` when we are done.
+11. We do the same process for the "**body**" of the object.
 
+<table>
+  <tr>
+    <td>
+      <img width="629" alt="image" src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/226ade25-41b0-48bb-bec0-5138242cf9d5">
+    </td>
+    <td>
+      <img width="847" alt="image" src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/90c4f164-a442-4adb-bbf1-98bbf70c16fb">
+    </td>
+  </tr>
+</table>
 
+Below is a video of how we label points with the brush tool:
 
 https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/83fbcfab-c315-4f53-9e53-7430ac9e0a1e
 
