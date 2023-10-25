@@ -813,7 +813,10 @@ For labeling, I chose the platform [Segments.ai](https://segments.ai/) which is 
 
 Below is a video of how we label points with the brush tool:
 
-https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/83fbcfab-c315-4f53-9e53-7430ac9e0a1e
+<div style="text-align: center;">
+  <video src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/83fbcfab-c315-4f53-9e53-7430ac9e0a1e" controls="controls" style="max-width: 730px;">
+  </video>
+</div>
 
 After we label all our objects, we click on the "export" button and a JSON file will be downloaded which consists of all our objects id, points coordinates, reflectivity value, and segmentation label.
 
