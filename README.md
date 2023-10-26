@@ -21,7 +21,7 @@ In the field of robotics, extensive research has been dedicated to teaching robo
 
 2. [Custom](https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/tree/main/Data)
 
-    - Created my own custom dataset which consists of ```40``` point clouds of three object classes: **Knife**, **Pan**, and **Cup**. 
+    - Created my own custom dataset which consists of ```400``` point clouds of three object classes: **Knife**, **Pan**, and **Cup**. Data augmentation was used to increase the dataset. More on data augmentation techniques in section 4. Part of the dataset has been uploaded in this GitHub repo.
 
 
 ## Abstract
@@ -699,7 +699,7 @@ The variable **outlier_cloud** now represents the ground plane as shown in blue 
 
 
 ### 4.2 Data Augmentation
-Note that we have three object classes and we have around ```10``` point clouds for each class. In summary, we have a very limited dataset. Of course, we can still collect more data however, this will take a long time and will require more objects to scan. I have a finite number of cups in my house!
+Note that we have three object classes and we have around ```25``` point clouds for each class. In summary, we have a very limited dataset. Of course, we can still collect more data however, this will take a long time and will require more objects to scan. I have a finite number of cups in my house!
 
 Similar to how we do data augmentation on our images - ```rotation```, ```blurring```, ```brightness adjusting```, and so on - we can do the same on the point cloud. However, there is a catch. We cannot do a ```rotation```, ```translation```, or ```reflection``` operation on our point cloud, as the PointNet is **invariant** to **rigid transformation** as explained above. And we cannot do blurring or brightness changing as we are only concerned with the spatial location of the points and not the intensity values (Also, I don't think we can do blurring). Recall, that the **Input T-Net** will align  the input point cloud to a ```canonical space``` so there is no point in doing the rigid transformations anyway.  Below we will describe three examples of data augmentation that we can do.
 
