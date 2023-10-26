@@ -846,19 +846,35 @@ After we label all our objects, we click on the "export" button and a JSON file 
 -------------------
 
 ## References
-1. https://medium.com/@luis_gonzales/an-in-depth-look-at-pointnet-111d7efdaa1a
-2. https://github.com/luis-gonzales/pointnet_own
-3. https://keras.io/examples/vision/pointnet/
-4. https://medium.com/p/90398f880c9f
-5. https://towardsdatascience.com/3d-deep-learning-python-tutorial-pointnet-data-preparation-90398f880c9f
-6. https://medium.com/deem-blogs/speaking-code-pointnet-65b0a8ddb63f
-7. https://arxiv.org/pdf/1506.02025.pdf
-8. https://medium.com/geekculture/understanding-3d-deep-learning-with-pointnet-fe5e95db4d2d
-9. https://towardsdatascience.com/deep-learning-on-point-clouds-implementing-pointnet-in-google-colab-1fd65cd3a263
-10. https://github.com/nikitakaraevv/pointnet/blob/master/nbs/PointNetClass.ipynb
-11. https://medium.com/@itberrios6/introduction-to-point-net-d23f43aa87d2
-12. https://github.com/fxia22/pointnet.pytorch/blob/master/pointnet/model.py
-13. https://medium.com/@itberrios6/point-net-from-scratch-78935690e496
-14. https://medium.com/@luis_gonzales/an-in-depth-look-at-pointnet-111d7efdaa1a
-15. https://www.youtube.com/watch?v=HIRj5pH2t-Y&t=427s&ab_channel=Lights%2CCamera%2CVision%21
-16. https://towardsdatascience.com/a-comprehensive-introduction-to-different-types-of-convolutions-in-deep-learning-669281e58215
+[1] Medium. (n.d.). An In-Depth Look at PointNet. [Article]. [https://medium.com/@luis_gonzales/an-in-depth-look-at-pointnet-111d7efdaa1a](https://medium.com/@luis_gonzales/an-in-depth-look-at-pointnet-111d7efdaa1a)
+
+[2] GitHub. (n.d.). PointNet Implementation. [Repository]. [https://github.com/luis-gonzales/pointnet_own](https://github.com/luis-gonzales/pointnet_own)
+
+[3] Keras. (n.d.). PointNet Example. [Documentation]. [https://keras.io/examples/vision/pointnet/](https://keras.io/examples/vision/pointnet/)
+
+[4] Medium. (n.d.). Understanding PointNet. [Article]. [https://medium.com/p/90398f880c9f](https://medium.com/p/90398f880c9f)
+
+[5] Towards Data Science. (n.d.). 3D Deep Learning Python Tutorial: PointNet Data Preparation. [Article]. [https://towardsdatascience.com/3d-deep-learning-python-tutorial-pointnet-data-preparation-90398f880c9f](https://towardsdatascience.com/3d-deep-learning-python-tutorial-pointnet-data-preparation-90398f880c9f)
+
+[6] Medium. (n.d.). Speaking Code: PointNet. [Article]. [https://medium.com/deem-blogs/speaking-code-pointnet-65b0a8ddb63f](https://medium.com/deem-blogs/speaking-code-pointnet-65b0a8ddb63f)
+
+[7] arXiv. (n.d.). PointNet: Deep Learning on Point Sets for 3D Classification and Segmentation. [Research Paper]. [https://arxiv.org/pdf/1506.02025.pdf](https://arxiv.org/pdf/1506.02025.pdf)
+
+[8] Geek Culture. (n.d.). Understanding 3D Deep Learning with PointNet. [Article]. [https://medium.com/geekculture/understanding-3d-deep-learning-with-pointnet-fe5e95db4d2d](https://medium.com/geekculture/understanding-3d-deep-learning-with-pointnet-fe5e95db4d2d)
+
+[9] Towards Data Science. (n.d.). Deep Learning on Point Clouds: Implementing PointNet in Google Colab. [Article]. [https://towardsdatascience.com/deep-learning-on-point-clouds-implementing-pointnet-in-google-colab-1fd65cd3a263](https://towardsdatascience.com/deep-learning-on-point-clouds-implementing-pointnet-in-google-colab-1fd65cd3a263)
+
+[10] GitHub. (n.d.). PointNet Notebook. [Notebook]. [https://github.com/nikitakaraevv/pointnet/blob/master/nbs/PointNetClass.ipynb](https://github.com/nikitakaraevv/pointnet/blob/master/nbs/PointNetClass.ipynb)
+
+[11] Medium. (n.d.). Introduction to PointNet. [Article]. [https://medium.com/@itberrios6/introduction-to-point-net-d23f43aa87d2](https://medium.com/@itberrios6/introduction-to-point-net-d23f43aa87d2)
+
+[12] GitHub. (n.d.). PointNet PyTorch Implementation. [Repository]. [https://github.com/fxia22/pointnet.pytorch/blob/master/pointnet/model.py](https://github.com/fxia22/pointnet.pytorch/blob/master/pointnet/model.py)
+
+[13] Medium. (n.d.). PointNet From Scratch. [Article]. [https://medium.com/@itberrios6/point-net-from-scratch-78935690e496](https://medium.com/@itberrios6/point-net-from-scratch-78935690e496)
+
+[14] Medium. (n.d.). An In-Depth Look at PointNet. [Article]. [https://medium.com/@luis_gonzales/an-in-depth-look-at-pointnet-111d7efdaa1a](https://medium.com/@luis_gonzales/an-in-depth-look-at-pointnet-111d7efdaa1a)
+
+[15] YouTube. (n.d.). PointNet Tutorial. [Video]. [https://www.youtube.com/watch?v=HIRj5pH2t-Y&t=427s&ab_channel=Lights%2CCamera%2CVision%21](https://www.youtube.com/watch?v=HIRj5pH2t-Y&t=427s&ab_channel=Lights%2CCamera%2CVision%21)
+
+[16] Towards Data Science. (n.d.). A Comprehensive Introduction to Different Types of Convolutions in Deep Learning. [Article]. [https://towardsdatascience.com/a-comprehensive-introduction-to-different-types-of-convolutions-in-deep-learning-669281e58215](https://towardsdatascience.com/a-comprehensive-introduction-to-different-types-of-convolutions-in-deep-learning-669281e58215)
+
