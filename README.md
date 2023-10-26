@@ -829,6 +829,17 @@ After we label all our objects, we click on the "export" button and a JSON file 
 <a name="te"></a>
 ## 6. Training & Evaluation
 
+
+
+
+<div style="text-align: center;">
+  <video src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/dad69893-8722-4fe5-9192-72acc6e49f4c" controls="controls" style="max-width: 730px;">
+  </video>
+</div>
+
+
+
+
 -------------------
 
 ## Conclusion
