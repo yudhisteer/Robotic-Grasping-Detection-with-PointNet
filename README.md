@@ -21,7 +21,7 @@ In the field of robotics, extensive research has been dedicated to teaching robo
 
 2. [Custom](https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/tree/main/Data)
 
-    - Created my own custom dataset which consists of ```400``` point clouds of three object classes: **Knife**, **Pan**, and **Cup**. Data augmentation was used to increase the dataset. More on data augmentation techniques in section 4. Part of the dataset has been uploaded in this GitHub repo.
+    - Created my own custom dataset which consists of ```400``` point clouds of three object classes: **Knife**, **Pan**, and **Cup**. Data augmentation was used to increase size of dataset. More on data augmentation techniques in section 4. Part of the dataset has been uploaded to this GitHub repo.
 
 
 ## Abstract
