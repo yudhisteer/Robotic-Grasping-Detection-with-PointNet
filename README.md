@@ -19,7 +19,7 @@ In the field of robotics, extensive research has been dedicated to teaching robo
 
    - **ShapeNetSem** is a more compact subset, containing ```12,000``` models across ```270``` categories, each extensively annotated with real-world dimensions, material composition estimates, and volume and weight approximations at the category level.
 
-2. [Custom](https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/tree/main/Data)
+2. [UtensilsNet](https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/tree/main/Data)
 
     - Created my own custom dataset which consists of ```400``` point clouds of three object classes: **Knife**, **Pan**, and **Cup**. Data augmentation was used to increase size of dataset. More on data augmentation techniques in section 4. Part of the dataset has been uploaded to this GitHub repo.
 
