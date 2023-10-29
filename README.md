@@ -38,7 +38,8 @@ In the field of robotics, extensive research has been dedicated to teaching robo
 3. [Data Collection with Polycam](#dc)
 4. [Data Pre-processing with Open3D](#dpo)
 5. [Data Labeling with Segments.ai](#dls)
-6. [Training & Evaluation](#te)
+6. [Training: Classification and Part-Segmentation](#t)
+7. [Evaluation](#e)
 
 -----------------
 <a name="up"></a>
@@ -953,8 +954,8 @@ After we label all our objects, we click on the "export" button and a JSON file 
 
 
 ------------------------
-<a name="te"></a>
-## 6. Training
+<a name="t"></a>
+## 6. Training: Classification and Part-Segmentation
 Now that we have coded our model architecture, collected our data, cleaned the data, augmented our dataset, and labeled it, it is now time for training!
 
 ### 6.1 Training for Classification
@@ -1017,6 +1018,8 @@ train_loss: 0.0353 | train_acc: 0.9890 | test_loss: 0.0406 | test_acc: 0.9870
 
 
 
+
+<a name="e"></a>
 ## 7. Evaluation
 Now, let's see how our model performs on an out-of-sample dataset.
 
@@ -1052,7 +1055,6 @@ Secondly, we scanned three more objects that were not part of our test dataset a
     <td><img width="446" alt="image" src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/c8f8cbaa-3943-46bd-90e7-9ceada2cc5f6"></td>
   </tr>
 </table>
-
 
 
 
