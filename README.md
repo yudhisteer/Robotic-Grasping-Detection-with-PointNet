@@ -877,14 +877,37 @@ train_loss: 0.0258 | train_acc: 0.9955 | test_loss: 0.0286 | test_acc: 1.0000
 ```
 
 <p align="center">
-  <img src="https://github.com/yudhisteer/Classifying-Lego-with-PointNet/assets/59663734/f81e2386-7e43-45a5-b70f-b6d1ab6ae962" width="100%" />
+  <img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/f15d9aa1-f677-4d96-8f3e-31057f22d746" width="70%" />
 </p>
 
+
 ### 6.1 Training for Part-Segmentation
+Now let's train our model for part-segmentation. Note that we will use the same loss function and optimizer as we used for the classifier. However, this time we will train our model for ```250``` epochs. Below are the results for our training:
+
+
+
 
 
 ## 7. Evaluation
 
+### 7.1 Evaluation: Classification
+<table>
+  <tr>
+    <td><img width="410" alt="image" src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/3f5eee7b-7d4c-4240-8b10-ff71a9be6b23"></td>
+    <td><img width="427" alt="image" src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/8cc3e608-5e51-4772-b8d1-aa645f00cc69"></td>
+    <td><img width="447" alt="image" src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/d4dc8ca1-223b-459b-8d98-44892903983b"></td>
+  </tr>
+  <tr>
+    <td><img width="445" alt="image" src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/12e6bf5a-a962-4cf7-8635-ba569179c992"></td>
+    <td><img width="453" alt="image" src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/b8abdc63-4062-4f3f-891a-f0e8c73c62e6"></td>
+    <td><img width="446" alt="image" src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/c8f8cbaa-3943-46bd-90e7-9ceada2cc5f6"></td>
+  </tr>
+</table>
+
+
+
+
+### 7.1 Evaluation: Part-Segmentation
 
 
 
