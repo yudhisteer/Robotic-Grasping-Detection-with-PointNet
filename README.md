@@ -845,15 +845,15 @@ Now that we have coded our model architecture, collected our data, cleaned the d
 We can train our model for either classification or segmentation at a time. We cannot do both at the same time. Hence, we will start with the easiest one: ```Classification```. Note that for both the classification and segmentation tasks, we will create our own **custom Dataset class** that will store the **samples** and their corresponding **labels**. We then create our train and test **DataLoaders** as follows:
 
 ```python
-        train_dataloader_custom = DataLoader(dataset=train_data_custom,
-                                             batch_size=BATCH_SIZE,
-                                             num_workers=NUM_WORKERS,
-                                             shuffle=True)
-        
-        test_dataloader_custom = DataLoader(dataset=test_data_custom,
-                                            batch_size=BATCH_SIZE,
-                                            num_workers=NUM_WORKERS,
-                                            shuffle=False)
+train_dataloader_custom = DataLoader(dataset=train_data_custom,
+                                     batch_size=BATCH_SIZE,
+                                     num_workers=NUM_WORKERS,
+                                     shuffle=True)
+
+test_dataloader_custom = DataLoader(dataset=test_data_custom,
+                                    batch_size=BATCH_SIZE,
+                                    num_workers=NUM_WORKERS,
+                                    shuffle=False)
 ```
 
 We then create an **instance** of our **model**:
@@ -870,7 +870,7 @@ We use the ```negative log-likelihood``` as our **loss function** and set the ``
 loss_fn = nn.NLLLoss()
 optimizer = torch.optim.SGD(params=model_cls.parameters(), lr=0.001, momentum=0.95)
 ```
-We then train our model for ```250 epochs```.
+We then train our model with a batch size of ```32``` and ```25``` epochs.
 
 
 
