@@ -186,7 +186,8 @@ Now that we know how PointNet works, we need to code it. Since it is a big neura
 
 **4. Classification Head**
 
-Note that we are only concerned with **classification** for this project and not **segmentation**. If the latter were considered, we would have a fifth segment called **Segmentation Head**. 
+**5. Segmentation Head**
+
 
 ### 2.1 Input T-Net
 As explained above, the Input Transform section of PointNet contains a T-Net. Below is the schema for the architecture of the T-Net consisting of 1D Convolutional Layers and Fully Connected layers as shared MLPs. 
