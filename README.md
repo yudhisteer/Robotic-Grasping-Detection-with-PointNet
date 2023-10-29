@@ -167,7 +167,7 @@ Since the Input T-Net and Feature T-Net are themselves mini-PointNet, they both 
 Note that the shared MLPs are the ```core feature extraction``` component after the initial alignment and transformation by the Input T-Net and Feature T-Net.
 
 <p align="center">
-  <img src="https://github.com/yudhisteer/Classifying-Lego-with-PointNet/assets/59663734/f81e2386-7e43-45a5-b70f-b6d1ab6ae962" width="100%" />
+  <img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/556c483c-4c20-450f-b389-c53d7b552269" width="100%" />
 </p>
 
 In the full architecture of the PointNet, we can clearly see how the Input Transformation Network and the Feature Transformation Network are ```mini-PointNets``` themselves.
@@ -656,13 +656,111 @@ Shape after Conv3: torch.Size([32, 1024, 2500])
 Shape after Pooling: torch.Size([32, 1024, 1])
 Shape of global feature:  torch.Size([32, 1024])
 
-# MLP...
+# Classification Head...
+Shape after PointNetFeat:  torch.Size([32, 1024])
 Shape after FC1: torch.Size([32, 512])
 Shape after FC2: torch.Size([32, 256])
 Shape after FC3: torch.Size([32, 5])
 ```
 
 Our output will be **log probabilities**. We will need to **exponentiate** to get probabilities for each point cloud in our batch. We will then select the class with the **highest probability** to classify the point cloud.
+
+### 2.5 Segmentation Head
+
+```python
+# Convolutional Layers
+conv1 = nn.Conv1d(1088, 512, 1)
+conv2 = nn.Conv1d(512, 256, 1)
+conv3 = nn.Conv1d(256, 128, 1)
+conv4 = nn.Conv1d(128, k, 1)
+```
+
+```python
+# Batch Normalization Layers
+bn1 = nn.BatchNorm1d(512)
+bn2 = nn.BatchNorm1d(256)
+bn3 = nn.BatchNorm1d(128)
+```
+
+
+```python
+def PointNetDenseCls(x, k=2, feature_transform=False):
+    print("\nSegmentation head...")
+    batchsize = x.size()[0]
+    n_pts = x.size()[2]
+    print("Shape initial:", x.shape, '\n')
+
+    # PointNetFeat
+    x, trans, trans_feat = pointnetfeat(x, global_feat=False, feature_transform=feature_transform)
+    print("\nShape after PointNetFeat: ", x.shape)
+
+
+    # Convolutional Layers
+    x = F.relu(bn1(conv1(x)))
+    print("Shape after Conv1:", x.shape)
+
+    x = F.relu(bn2(conv2(x)))
+    print("Shape after Conv2:", x.shape)
+
+    x = F.relu(bn3(conv3(x)))
+    print("Shape after Conv3:", x.shape)
+
+    x = conv4(x)
+
+    # Post-processing
+    x = x.transpose(2, 1).contiguous()
+    x = F.log_softmax(x.view(-1, k), dim=-1)
+    x = x.view(batchsize, n_pts, k)
+
+    return x, trans, trans_feat
+```
+
+```python
+# Input Transform...
+Shape initial: torch.Size([32, 3, 2500])
+Shape after Conv1: torch.Size([32, 64, 2500])
+Shape after Conv2: torch.Size([32, 128, 2500])
+Shape after Conv3: torch.Size([32, 1024, 2500])
+Shape after Max Pooling: torch.Size([32, 1024, 1])
+Shape after Reshape: torch.Size([32, 1024])
+Shape after FC1: torch.Size([32, 512])
+Shape after FC2: torch.Size([32, 256])
+Shape after FC3: torch.Size([32, 9])
+Shape of Iden: torch.Size([32, 9])
+Shape after Reshape to 3x3: torch.Size([32, 3, 3])
+Shape after Matrix Multiply: torch.Size([32, 2500, 3])
+Shape after Input T-Net: torch.Size([32, 3, 2500])
+
+MLP...
+Shape after Conv1: torch.Size([32, 64, 2500])
+
+# Feature Transform...
+Shape initial: torch.Size([32, 64, 2500])
+Shape after Conv1: torch.Size([32, 64, 2500])
+Shape after Conv2: torch.Size([32, 128, 2500])
+Shape after Conv3: torch.Size([32, 1024, 2500])
+Shape after Max Pooling: torch.Size([32, 1024, 1])
+Shape after Reshape: torch.Size([32, 1024])
+Shape after FC1: torch.Size([32, 512])
+Shape after FC2: torch.Size([32, 256])
+Shape after FC3: torch.Size([32, 4096])
+Shape after Matrix Multiply: torch.Size([32, 2500, 64])
+Shape after Feature T-Net: torch.Size([32, 64, 2500]) 
+
+MLP...
+Shape after Conv2: torch.Size([32, 128, 2500])
+Shape after Conv3: torch.Size([32, 1024, 2500])
+Shape after Pooling: torch.Size([32, 1024, 1])
+Shape of global feature:  torch.Size([32, 1024])
+
+# Segmentation Head...
+Shape after PointNetFeat:  torch.Size([32, 1088, 2500])
+Shape after Conv1: torch.Size([32, 512, 2500])
+Shape after Conv2: torch.Size([32, 256, 2500])
+Shape after Conv3: torch.Size([32, 128, 2500])
+Output torch.Size([32, 2500, 3])
+```
+
 
 
 
