@@ -1042,7 +1042,7 @@ Secondly, we scanned three more objects that were not part of our test dataset a
 ### 7.1 Evaluation: Part-Segmentation
 Similarly, we test our model on our test dataset and we observe 
 
-# Image Table
+
 
 <table>
   <tr>
@@ -1060,6 +1060,31 @@ Similarly, we test our model on our test dataset and we observe
     <td><img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/2565cf99-c57c-4b5f-b07c-2fbf6a21e181" alt="Image 5" width="500"></td>
   </tr>
 </table>
+
+
+
+
+
+<table>
+  <tr>
+    <th>Epoch 50</th>
+    <th>Epoch 100</th>
+    <th>Epoch 150</th>
+    <th>Epoch 200</th>
+    <th>Epoch 250</th>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/7c94faa5-6540-4b91-8b01-a066045a7558" alt="Image 6" width="454"></td>
+    <td><img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/aa448978-ba9b-489d-936f-148f34e5b105" alt="Image 7" width="461"></td>
+    <td><img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/c428b4f2-d616-46bd-b633-23d851a7b168" alt="Image 8" width="522"></td>
+    <td><img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/572fb124-0f12-426c-baef-60d504aaac8f" alt="Image 9" width="462"></td>
+    <td><img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/3534bf17-6cba-4270-bf3f-a6f5e536ef68" alt="Image 10" width="443"></td>
+  </tr>
+</table>
+
+
+
+
 
 -------------------
 
