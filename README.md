@@ -908,6 +908,20 @@ Now, let's see how our model performs on an out-of-sample dataset.
 Below are some results we performed on our test dataset. We observe that the model correctly predicts the class of all three objects with high probability.
 
 
+<table>
+  <tr>
+    <td><img width="514" alt="image" src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/3f0ec298-1eac-43a1-9952-72fdbe4bdaba"></td>
+    <td><img width="489" alt="image" src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/a7c1519f-e762-4d22-8295-9e8e05ddcce1"></td>
+    <td><img width="564" alt="image" src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/f00871ab-2628-40a2-9c97-6e85fbdffb48"></td>
+  </tr>
+  <tr>
+    <td><img width="445" alt="image" src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/fc1a8a66-6ca7-478e-b5ce-6c222133ecd7"></td>
+    <td><img width="453" alt="image" src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/ccdf3521-f485-46df-b435-459ee967f092"></td>
+    <td><img width="453" alt="image" src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/15b9ef20-5526-4b17-9071-b7222eec4aa5"></td>
+  </tr>
+</table>
+
+
 Secondly, we scanned three more objects that were not part of our test dataset and performed inference. We can see that though these objects are not specifically cups, they do have a physical structure similar to a cup. The model wrongly classifies the first object but correctly classifies the last two objects. Note that 
 
 <table>
