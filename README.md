@@ -981,7 +981,7 @@ train_loss: 0.0258 | train_acc: 0.9955 | test_loss: 0.0286 | test_acc: 1.0000
 
 
 ### 6.1 Training for Part-Segmentation
-Now let's train our model for part-segmentation. Note that we will use the same loss function and optimizer as we used for the classifier. However, this time we will train our model for ```250``` epochs. Below are the results of our training:
+Now let's train our model for part-segmentation. Note that we will use the same loss function and optimizer as we used for the classifier. With experimentation, I observed a **learning rate** of ```0.001``` and a **momentum** value of ```0.95``` works best. However, this time we will train our model for ```250``` epochs. Below are the results of our training:
 
 ```python
 # Instantiate model
@@ -1042,7 +1042,24 @@ Secondly, we scanned three more objects that were not part of our test dataset a
 ### 7.1 Evaluation: Part-Segmentation
 Similarly, we test our model on our test dataset and we observe 
 
+# Image Table
 
+<table>
+  <tr>
+    <th>Epoch 50</th>
+    <th>Epoch 100</th>
+    <th>Epoch 150</th>
+    <th>Epoch 200</th>
+    <th>Epoch 250</th>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/47aa781d-a8be-41a6-96fd-6d0d3957f406" alt="Image 1" width="602"></td>
+    <td><img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/4ccf8496-8fb2-4d31-911a-d12ecaaaa88c" alt="Image 2" width="499"></td>
+    <td><img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/70928637-c6de-4aa7-a06d-3d637a9096e0" alt="Image 3" width="562"></td>
+    <td><img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/dfb707fe-8543-4324-b00b-02cf751ccfb4" alt="Image 4" width="550"></td>
+    <td><img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/2565cf99-c57c-4b5f-b07c-2fbf6a21e181" alt="Image 5" width="500"></td>
+  </tr>
+</table>
 
 -------------------
 
