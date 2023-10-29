@@ -669,6 +669,17 @@ Our output will be **log probabilities**. We will need to **exponentiate** to ge
 ------------------------
 <a name="dc"></a>
 ## 3. Data Collection with Polycam
+Thanks to [Polycam](https://poly.cam/), it is very easy to collect data with your iPhone's LiDAR. The app has a free trial however, we can only export the data in ```.glb``` format. Make sure that you move slowly around your object to avoid **drift** and avoid capturing the facet of your object more than once. Unfortunately, you will not be able to capture transparent objects or shiny objects. For better results, I observed that it is better to choose objects with textures and details. I placed those objects on the ground to scan as when putting them on a table, I would accidentally scan other parts of the room and this would lead to extraneous details. 
+
+
+<p align="center">
+  <img src=https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/df78eafc-d44d-4569-9d98-bb48a55b6061" width="49%" height="371px" />
+  <img src=https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/f51b3371-2570-4d12-857d-a11c1604420e" width="49%" />
+</p>
+
+
+You will need to convert your files from ```.glb``` to either .pcd or ```.ply``` for further processing. I used this website: [link](https://products.aspose.app/3d/conversion/glb-to-ply).
+
 
 ------------------------
 <a name="dpo"></a>
