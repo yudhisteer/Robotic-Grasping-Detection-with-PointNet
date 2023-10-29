@@ -188,6 +188,8 @@ Now that we know how PointNet works, we need to code it. Since it is a big neura
 
 **5. Segmentation Head**
 
+For this project, we will focus on both **classification** and **part-segmentation**.
+
 
 ### 2.1 Input T-Net
 As explained above, the Input Transform section of PointNet contains a T-Net. Below is the schema for the architecture of the T-Net consisting of 1D Convolutional Layers and Fully Connected layers as shared MLPs. 
@@ -483,7 +485,7 @@ def pointnetfeat(x, global_feat=True, feature_transform=True):
     x = x.transpose(2, 1)
     print("Shape after Input T-Net:", x.shape) #torch.Size([32, 3, 2500])
 
-    # Conv layers
+    # conv layers
     x = F.relu(bn1(conv1(x)))
     print("Shape after Conv1:", x.shape)
 
@@ -502,7 +504,7 @@ def pointnetfeat(x, global_feat=True, feature_transform=True):
     # Save point features
     pointfeat = x
 
-    # Remaining conv layers
+    # conv layers
     x = F.relu(bn2(conv2(x)))
     print("Shape after Conv2:", x.shape)
 
@@ -517,12 +519,13 @@ def pointnetfeat(x, global_feat=True, feature_transform=True):
     x = x.view(-1, 1024)
     print("Shape of global feature: ", x.shape)
 
-    # Return
+    # classification:
     if global_feat:
         return x, trans, trans_feat
+    # segmentation
     else:
-        x = x.view(-1, 1024, 1).repeat(1, 1, n_pts)
-        return torch.cat([x, pointfeat], 1), trans, trans_feat
+        x = x.view(-1, 1024, 1).repeat(1, 1, n_pts) 
+        return torch.cat([x, pointfeat], 1), trans, trans_feat #1088
 ```
 
 Again with simulated data, we print our results:
@@ -576,7 +579,7 @@ Lastly, we have the classification head function which will complete the whole c
 k = 5 #number of classes to predict
 ```
 
-Similarly, we then defined the last shared MLP which consist of only Fully Connected layers :
+Similarly, we then defined the last shared MLP which consists of only Fully Connected layers :
 
 ```python
 # Fully Connected Layers
@@ -667,6 +670,8 @@ Shape after FC3: torch.Size([32, 5])
 Our output will be **log probabilities**. We will need to **exponentiate** to get probabilities for each point cloud in our batch. We will then select the class with the **highest probability** to classify the point cloud.
 
 ### 2.5 Segmentation Head
+For the segmentation head, our shared MLPs will also consist of **1D Convolutional layers**.
+
 
 ```python
 # Convolutional Layers
@@ -683,6 +688,17 @@ bn2 = nn.BatchNorm1d(256)
 bn3 = nn.BatchNorm1d(128)
 ```
 
+Note that since we need to concatenate our output ```(64)``` from the **feature transform** with the **global feature** ```(1024)```, we have an if function in our ```pointnetfeat``` function we do so and return a feature of size ```[batch size, 1088, n]```. We then pass the latter through the shared MLPs. 
+
+```python
+    if global_feat:
+        return x, trans, trans_feat
+    else:
+        x = x.view(-1, 1024, 1).repeat(1, 1, n_pts)
+        return torch.cat([x, pointfeat], 1), trans, trans_feat
+```
+
+The output from the segmentation head is of size: ```[batch size, n, m]``` where ```m``` is the number of classes. 
 
 ```python
 def PointNetDenseCls(x, k=2, feature_transform=False):
@@ -715,6 +731,7 @@ def PointNetDenseCls(x, k=2, feature_transform=False):
 
     return x, trans, trans_feat
 ```
+With simulated data, we print the output from the beginning:
 
 ```python
 # Input Transform...
@@ -1145,7 +1162,7 @@ At epoch 240, we could see we correctly segmented part of the handle. Alas, simi
 ## Conclusion
 The PointNet was one of the first neural network architectures that could directly process raw point cloud data instead of transforming first into voxels as previous models would do. What makes PointNet powerful is its permutation invariance characteristic that can handle point clouds with varying order by aligning the point cloud into a canonical space. In this project, we used the PointNet for both Classification and Part-Segmentation. We saw that the PointNet has a simple architecture - it comprises of mini-PointNets - and in turn, makes it computationally efficient. However,  PointNet is sensitive to noisy data and a limited dataset can be a major drawback. 
 
-Collecting our own data with an app like Polycam is possible, but it can be time-consuming and might require multiple attempts for proper point cloud processing. We addressed this by augmenting our point cloud data to increase our dataset size. Although labeling using Segments.ai is user-friendly, it remains a manual effort that consumes time. For classification, only 25 epochs were needed to achieve high accuracy on our test set. However, for part-segmentation, we trained our model for 250 epochs. During the evaluation of out-of-sample data, we encountered challenges in segmenting the handle from the body due to limited data. To improve this, we could consider a transfer learning approach, where we first train the model on the ShapeNet dataset and then apply it to our out-of-sample data. This could be a valuable enhancement for our project. This approach could be  listed as a further improvement to our project. 
+Collecting our own data with an app like Polycam is possible, but it can be time-consuming and might require multiple attempts for proper point cloud processing. We addressed this by augmenting our point cloud data to increase our dataset size. Although labeling using Segments.ai is user-friendly, it remains a manual effort that consumes time. For classification, only 25 epochs were needed to achieve high accuracy on our test set. However, for part-segmentation, we trained our model for 250 epochs. During the evaluation of out-of-sample data, we encountered challenges in segmenting the handle from the body due to limited data. To improve this, we could consider a transfer learning approach, where we first train the model on the ShapeNet dataset and then apply it to our out-of-sample data. This approach could be listed as a further improvement to our project. 
 
 
 
