@@ -1122,6 +1122,23 @@ Similarly, we test our model on our test dataset and we observe
 </table>
 
 
+<table>
+  <tr>
+    <th>Original</th>
+    <th>Epoch 240</th>
+    <th>Epoch 242</th>
+    <th>Epoch 245</th>
+    <th>Epoch 250</th>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/e737a4f3-023a-480d-877f-52f170df54c7" alt="Image 21" width="348"></td>
+    <td><img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/98c0e23f-162f-48e4-9b3b-d3a15367c948" alt="Image 22" width="340"></td>
+    <td><img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/e89cd972-b53c-4063-ac1d-f0643f919d7b" alt="Image 23" width="369"></td>
+    <td><img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/41867d34-b330-4c61-972f-1378a76201f7" alt="Image 24" width="369"></td>
+    <td><img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/91274274-7e07-4242-8191-c39c03ec067a" alt="Image 25" width="380"></td>
+  </tr>
+</table>
+
 
 
 -------------------
