@@ -870,19 +870,22 @@ We use the ```negative log-likelihood``` as our **loss function** and set the ``
 loss_fn = nn.NLLLoss()
 optimizer = torch.optim.SGD(params=model_cls.parameters(), lr=0.001, momentum=0.95)
 ```
-We then train our model with a batch size of ```32``` and ```25``` epochs.
+We then train our model with a batch size of ```32``` and ```25``` epochs. Below are the results from our training:
 
+```python
+train_loss: 0.0258 | train_acc: 0.9955 | test_loss: 0.0286 | test_acc: 1.0000
+```
 
+<p align="center">
+  <img src="https://github.com/yudhisteer/Classifying-Lego-with-PointNet/assets/59663734/f81e2386-7e43-45a5-b70f-b6d1ab6ae962" width="100%" />
+</p>
 
 ### 6.1 Training for Part-Segmentation
 
 
 ## 7. Evaluation
 
-<div style="text-align: center;">
-  <video src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/dad69893-8722-4fe5-9192-72acc6e49f4c" controls="controls" style="max-width: 730px;">
-  </video>
-</div>
+
 
 
 -------------------
