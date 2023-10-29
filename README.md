@@ -882,15 +882,34 @@ train_loss: 0.0258 | train_acc: 0.9955 | test_loss: 0.0286 | test_acc: 1.0000
 
 
 ### 6.1 Training for Part-Segmentation
-Now let's train our model for part-segmentation. Note that we will use the same loss function and optimizer as we used for the classifier. However, this time we will train our model for ```250``` epochs. Below are the results for our training:
+Now let's train our model for part-segmentation. Note that we will use the same loss function and optimizer as we used for the classifier. However, this time we will train our model for ```250``` epochs. Below are the results of our training:
 
+```python
+# Instantiate model
+model_seg = PointNetDenseCls(train_data_custom.num_seg_classes)
+```
+Below is our segmentation results:
+
+```python
+train_loss: 0.0353 | train_acc: 0.9890 | test_loss: 0.0406 | test_acc: 0.9870
+```
+
+<p align="center">
+  <img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/326f3026-4b7c-4915-90e0-613afb7d6e37" width="70%" />
+</p>
 
 
 
 
 ## 7. Evaluation
+Now, let's see how our model performs on an out-of-sample dataset.
 
 ### 7.1 Evaluation: Classification
+Below are some results we performed on our test dataset. We observe that the model correctly predicts the class of all three objects with high probability.
+
+
+Secondly, we scanned three more objects that were not part of our test dataset and performed inference. We can see that though these objects are not specifically cups, they do have a physical structure similar to a cup. The model wrongly classifies the first object but correctly classifies the last two objects. Note that 
+
 <table>
   <tr>
     <td><img width="410" alt="image" src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/3f5eee7b-7d4c-4240-8b10-ff71a9be6b23"></td>
@@ -908,6 +927,7 @@ Now let's train our model for part-segmentation. Note that we will use the same 
 
 
 ### 7.1 Evaluation: Part-Segmentation
+Similarly, we test our model on our test dataset and we observe 
 
 
 
