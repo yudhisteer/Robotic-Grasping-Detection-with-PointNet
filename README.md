@@ -1140,11 +1140,17 @@ At epoch 240, we could see we correctly segmented part of the handle. Alas, simi
   </tr>
 </table>
 
-
-
 -------------------
 
 ## Conclusion
+The PointNet was one of the first neural network architectures that could directly process raw point cloud data instead of transforming first into voxels as previous models would do. What makes PointNet powerful is its permutation invariance characteristic that can handle point clouds with varying order by aligning the point cloud into a canonical space. In this project, we used the PointNet for both Classification and Part-Segmentation. We saw that the PointNet has a simple architecture - it comprises of mini-PointNets - and in turn, makes it computationally efficient. However,  PointNet is sensitive to noisy data and a limited dataset can be a major drawback. 
+
+Collecting our own data with an app like Polycam is possible, but it can be time-consuming and might require multiple attempts for proper point cloud processing. We addressed this by augmenting our point cloud data to increase our dataset size. Although labeling using Segments.ai is user-friendly, it remains a manual effort that consumes time. For classification, only 25 epochs were needed to achieve high accuracy on our test set. However, for part-segmentation, we trained our model for 250 epochs. During the evaluation of out-of-sample data, we encountered challenges in segmenting the handle from the body due to limited data. To improve this, we could consider a transfer learning approach, where we first train the model on the ShapeNet dataset and then apply it to our out-of-sample data. This could be a valuable enhancement for our project. This approach could be  listed as a further improvement to our project. 
+
+
+
+
+
 -------------------
 
 ## References
