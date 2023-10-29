@@ -678,7 +678,7 @@ Thanks to [Polycam](https://poly.cam/), it is very easy to collect data with you
 </p>
 
 
-You will need to convert your files from ```.glb``` to either .pcd or ```.ply``` for further processing. I used this website: [link](https://products.aspose.app/3d/conversion/glb-to-ply).
+You will need to convert your files from ```.glb``` to either ```.pcd``` or ```.ply``` for further processing. I used this website: [link](https://products.aspose.app/3d/conversion/glb-to-ply). You can visualize your result with [Meshlab](https://www.meshlab.net/).
 
 
 ------------------------
@@ -838,17 +838,51 @@ After we label all our objects, we click on the "export" button and a JSON file 
 
 ------------------------
 <a name="te"></a>
-## 6. Training & Evaluation
+## 6. Training
+Now that we have coded our model architecture, collected our data, cleaned the data, augmented our dataset, and labeled it, it is now time for training!
+
+### 6.1 Training for Classification
+We can train our model for either classification or segmentation at a time. We cannot do both at the same time. Hence, we will start with the easiest one: ```Classification```. Note that for both the classification and segmentation tasks, we will create our own **custom Dataset class** that will store the **samples** and their corresponding **labels**. We then create our train and test **DataLoaders** as follows:
+
+```python
+        train_dataloader_custom = DataLoader(dataset=train_data_custom,
+                                             batch_size=BATCH_SIZE,
+                                             num_workers=NUM_WORKERS,
+                                             shuffle=True)
+        
+        test_dataloader_custom = DataLoader(dataset=test_data_custom,
+                                            batch_size=BATCH_SIZE,
+                                            num_workers=NUM_WORKERS,
+                                            shuffle=False)
+```
+
+We then create an **instance** of our **model**:
+
+```python
+# Instantiate model
+model_cls = PointNetCls(len(train_data_custom.classes))
+```
+
+We use the ```negative log-likelihood``` as our **loss function** and set the ```Stochastic Gradient Descent``` as our **optimizer**. 
+
+```
+# Setup loss function and optimizer
+loss_fn = nn.NLLLoss()
+optimizer = torch.optim.SGD(params=model_cls.parameters(), lr=0.001, momentum=0.95)
+```
+We then train our model for ```250 epochs```.
 
 
 
+### 6.1 Training for Part-Segmentation
+
+
+## 7. Evaluation
 
 <div style="text-align: center;">
   <video src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/dad69893-8722-4fe5-9192-72acc6e49f4c" controls="controls" style="max-width: 730px;">
   </video>
 </div>
-
-
 
 
 -------------------
