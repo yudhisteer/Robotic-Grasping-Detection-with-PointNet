@@ -1040,7 +1040,7 @@ Secondly, we scanned three more objects that were not part of our test dataset a
 
 
 ### 7.1 Evaluation: Part-Segmentation
-Similarly, we test our model on our test dataset and we observe 
+Similarly, we test our model on our test dataset and we observe that at epoch 100 we start to segment part of the handle of the cup. However, from epoch 100 to epoch 200, we no longer have proper results. At epoch 250 we have a clear segmentation of the handle.
 
 
 
@@ -1062,7 +1062,7 @@ Similarly, we test our model on our test dataset and we observe
 </table>
 
 
-
+With the pan dataset, we have our best results  at epoch 150. After that, our results started to deteriorate. This may be due to a lack of data. 
 
 
 <table>
@@ -1082,7 +1082,7 @@ Similarly, we test our model on our test dataset and we observe
   </tr>
 </table>
 
-
+We tested the model with the out-of-sample dataset of the mug. Although, we can clearly distinguish the handle of the mug, however, we could not segment any points till epoch 181. At epoch 187, the handle is wrongly segmented as the body. After epoch 188 till epoch 250, we segment our whole point cloud as the handle which is clearly wrong. 
 
 <table>
   <tr>
@@ -1101,7 +1101,7 @@ Similarly, we test our model on our test dataset and we observe
   </tr>
 </table>
 
-
+Still no luck with the point cloud of the detergent. At epoch 260 we segmented half of the body of the object as the handle. This then decreases will epoch 280, however, we fail to segment the handle of the point cloud. 
 
 
 <table>
@@ -1121,6 +1121,7 @@ Similarly, we test our model on our test dataset and we observe
   </tr>
 </table>
 
+At epoch 240, we could see we correctly segmented part of the handle. Alas, similar to the mug point cloud, we are segmenting the body of the object as the handle. 
 
 <table>
   <tr>
