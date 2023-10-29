@@ -672,13 +672,16 @@ Our output will be **log probabilities**. We will need to **exponentiate** to ge
 ### 2.5 Segmentation Head
 For the segmentation head, our shared MLPs will also consist of **1D Convolutional layers**.
 
+```python
+m = 3 # number of segmentation classes
+```
 
 ```python
 # Convolutional Layers
 conv1 = nn.Conv1d(1088, 512, 1)
 conv2 = nn.Conv1d(512, 256, 1)
 conv3 = nn.Conv1d(256, 128, 1)
-conv4 = nn.Conv1d(128, k, 1)
+conv4 = nn.Conv1d(128, m, 1)
 ```
 
 ```python
@@ -688,7 +691,7 @@ bn2 = nn.BatchNorm1d(256)
 bn3 = nn.BatchNorm1d(128)
 ```
 
-Note that since we need to concatenate our output ```(64)``` from the **feature transform** with the **global feature** ```(1024)```, we have an if function in our ```pointnetfeat``` function we do so and return a feature of size ```[batch size, 1088, n]```. We then pass the latter through the shared MLPs. 
+Note that since we need to concatenate our output ```(64)``` from the **feature transform** with the **global feature** ```(1024)```, we have an if function in our ```pointnetfeat``` function which do so and return a feature of size ```[batch size, 1088, n]```. We then pass the latter through the shared MLPs. 
 
 ```python
     if global_feat:
@@ -698,10 +701,10 @@ Note that since we need to concatenate our output ```(64)``` from the **feature 
         return torch.cat([x, pointfeat], 1), trans, trans_feat
 ```
 
-The output from the segmentation head is of size: ```[batch size, n, m]``` where ```m``` is the number of classes. 
+The output from the segmentation head is of size: ```[batch size, n, m]``` where ```m``` is the number of segmentation classes. 
 
 ```python
-def PointNetDenseCls(x, k=2, feature_transform=False):
+def PointNetDenseCls(x, m=2, feature_transform=False):
     print("\nSegmentation head...")
     batchsize = x.size()[0]
     n_pts = x.size()[2]
@@ -726,8 +729,8 @@ def PointNetDenseCls(x, k=2, feature_transform=False):
 
     # Post-processing
     x = x.transpose(2, 1).contiguous()
-    x = F.log_softmax(x.view(-1, k), dim=-1)
-    x = x.view(batchsize, n_pts, k)
+    x = F.log_softmax(x.view(-1, m), dim=-1)
+    x = x.view(batchsize, n_pts, m)
 
     return x, trans, trans_feat
 ```
@@ -778,9 +781,6 @@ Shape after Conv2: torch.Size([32, 256, 2500])
 Shape after Conv3: torch.Size([32, 128, 2500])
 Output torch.Size([32, 2500, 3])
 ```
-
-
-
 
 ------------------------
 <a name="dc"></a>
