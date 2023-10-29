@@ -59,6 +59,8 @@ The architecture is designed to directly process **unordered** point cloud data,
   <img src="https://github.com/yudhisteer/Deep-Point-Clouds-3D-Perception/assets/59663734/3d3487cf-65c5-4cc7-b744-5813d5b6e27d" width="40%" />
 </p>
 
+Our project will focus on **classification** and **part-segmentation**.
+
 
 ### 1.1 Permutation Invariance
 
@@ -1059,7 +1061,7 @@ Secondly, we scanned three more objects that were not part of our test dataset a
 
 
 ### 7.1 Evaluation: Part-Segmentation
-Similarly, we test our model on our test dataset and we observe that at epoch 100 we start to segment part of the handle of the cup. However, from epoch 100 to epoch 200, we no longer have proper results. At epoch 250 we have a clear segmentation of the handle.
+Similarly, we test our model on our test dataset and we observe that at epoch 100 we start to segment part of the handle of the cup. However, from epoch ```100``` to epoch ```200```, we no longer have proper results. At epoch ```250``` we have a clear segmentation of the handle.
 
 
 
@@ -1081,7 +1083,7 @@ Similarly, we test our model on our test dataset and we observe that at epoch 10
 </table>
 
 
-With the pan dataset, we have our best results  at epoch 150. After that, our results started to deteriorate. This may be due to a lack of data. 
+With the pan dataset, we have our best results  at epoch ```150```. After that, our results started to deteriorate. This may be due to a lack of data. 
 
 
 <table>
@@ -1101,7 +1103,7 @@ With the pan dataset, we have our best results  at epoch 150. After that, our re
   </tr>
 </table>
 
-We tested the model with the out-of-sample dataset of the mug. Although, we can clearly distinguish the handle of the mug, however, we could not segment any points till epoch 181. At epoch 187, the handle is wrongly segmented as the body. After epoch 188 till epoch 250, we segment our whole point cloud as the handle which is clearly wrong. 
+We tested the model with the out-of-sample dataset of the mug. Although, we can clearly distinguish the handle of the mug, however, we could not segment any points till epoch ```181```. At epoch ```187```, the handle is wrongly segmented as the body. After epoch ```188``` till epoch ```250```, we segment our whole point cloud as the handle which is clearly wrong. 
 
 <table>
   <tr>
@@ -1120,7 +1122,7 @@ We tested the model with the out-of-sample dataset of the mug. Although, we can 
   </tr>
 </table>
 
-Still no luck with the point cloud of the detergent. At epoch 260 we segmented half of the body of the object as the handle. This then decreases will epoch 280, however, we fail to segment the handle of the point cloud. 
+Still no luck with the point cloud of the detergent. At epoch ```260``` we segmented half of the body of the object as the handle. This then decreases will epoch ```280```, however, we fail to segment the handle of the point cloud. 
 
 
 <table>
@@ -1140,7 +1142,7 @@ Still no luck with the point cloud of the detergent. At epoch 260 we segmented h
   </tr>
 </table>
 
-At epoch 240, we could see we correctly segmented part of the handle. Alas, similar to the mug point cloud, we are segmenting the body of the object as the handle. 
+At epoch ```240```, we could see we correctly segmented part of the handle. Alas, similar to the mug point cloud, we are segmenting the body of the object as the handle. 
 
 <table>
   <tr>
@@ -1162,9 +1164,9 @@ At epoch 240, we could see we correctly segmented part of the handle. Alas, simi
 -------------------
 
 ## Conclusion
-The PointNet was one of the first neural network architectures that could directly process raw point cloud data instead of transforming first into voxels as previous models would do. What makes PointNet powerful is its permutation invariance characteristic that can handle point clouds with varying order by aligning the point cloud into a canonical space. In this project, we used the PointNet for both Classification and Part-Segmentation. We saw that the PointNet has a simple architecture - it comprises of mini-PointNets - and in turn, makes it computationally efficient. However,  PointNet is sensitive to noisy data and a limited dataset can be a major drawback. 
+The PointNet was one of the first neural network architectures that could directly process raw point cloud data instead of transforming first into voxels as previous models would do. What makes PointNet powerful is its **permutation invariance** characteristic that can handle point clouds with varying order by aligning the point cloud into a canonical space. In this project, we used PointNet for both **Classification** and **Part-Segmentation**. We saw that the PointNet has a simple architecture - it comprises of **mini-PointNets** - and in turn, makes it computationally efficient. However,  PointNet is sensitive to noisy data and a limited dataset can be a major drawback. 
 
-Collecting our own data with an app like Polycam is possible, but it can be time-consuming and might require multiple attempts for proper point cloud processing. We addressed this by augmenting our point cloud data to increase our dataset size. Although labeling using Segments.ai is user-friendly, it remains a manual effort that consumes time. For classification, only 25 epochs were needed to achieve high accuracy on our test set. However, for part-segmentation, we trained our model for 250 epochs. During the evaluation of out-of-sample data, we encountered challenges in segmenting the handle from the body due to limited data. To improve this, we could consider a transfer learning approach, where we first train the model on the ShapeNet dataset and then apply it to our out-of-sample data. This approach could be listed as a further improvement to our project. 
+Collecting our own data with an app like **Polycam** is possible, but it can be time-consuming and might require multiple attempts for proper point cloud processing. We addressed this by augmenting our point cloud data to increase our dataset size. Although labeling using **Segments.ai** is user-friendly, it remains a manual effort that consumes time. For classification, only ```100 epochs``` were needed to achieve high accuracy on our test set. However, for part-segmentation, we trained our model for ```250 epochs```. During the evaluation of out-of-sample data, we encountered challenges in segmenting the handle from the body due to limited data. To improve this, we could consider a **transfer learning** approach, where we first train the model on the **ShapeNet** dataset, then use the learned weights to further train on our custom dataset, and finally, perform inference on our out-of-sample data. This approach could be listed as a further improvement to our project. 
 
 
 
