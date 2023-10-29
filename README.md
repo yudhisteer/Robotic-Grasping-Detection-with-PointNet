@@ -1084,6 +1084,44 @@ Similarly, we test our model on our test dataset and we observe
 
 
 
+<table>
+  <tr>
+    <th>Original</th>
+    <th>Epoch 180</th>
+    <th>Epoch 181</th>
+    <th>Epoch 187</th>
+    <th>Epoch 188</th>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/7418ee3a-d49d-4e18-ad0b-dbed733ea5a6" alt="Image 11" width="486"></td>
+    <td><img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/912dfaea-e536-4a1b-929c-2069ea5389ad" alt="Image 12" width="429"></td>
+    <td><img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/1b301675-4b1f-4604-9524-fbdfac4df272" alt="Image 13" width="344"></td>
+    <td><img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/6215bdc8-82ad-4c66-b6a6-aabe8c1b4776" alt="Image 14" width="449"></td>
+    <td><img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/3f0dd670-8c5f-4988-995f-a38f4380e615" alt="Image 15" width="427"></td>
+  </tr>
+</table>
+
+
+
+
+<table>
+  <tr>
+    <th>Original</th>
+    <th>Epoch 260</th>
+    <th>Epoch 270</th>
+    <th>Epoch 275</th>
+    <th>Epoch 280</th>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/b194e70b-36b5-41cd-b3b1-4d19d29f5ab6" alt="Image 16" width="442"></td>
+    <td><img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/7945fd32-6c27-456c-9dc7-e4502d48884f" alt="Image 17" width="431"></td>
+    <td><img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/c7b8208c-75cb-4a9a-9767-a3d4a24df50e" alt="Image 18" width="391"></td>
+    <td><img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/4d94f7b1-d7eb-4df2-bef3-56d855370a53" alt="Image 19" width="411"></td>
+    <td><img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/f9cec748-c213-48a4-87be-635f6438bb54" alt="Image 20" width="390"></td>
+  </tr>
+</table>
+
+
 
 
 -------------------
