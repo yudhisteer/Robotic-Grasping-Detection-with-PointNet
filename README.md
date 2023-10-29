@@ -167,7 +167,7 @@ Since the Input T-Net and Feature T-Net are themselves mini-PointNet, they both 
 Note that the shared MLPs are the ```core feature extraction``` component after the initial alignment and transformation by the Input T-Net and Feature T-Net.
 
 <p align="center">
-  <img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/556c483c-4c20-450f-b389-c53d7b552269" width="100%" />
+  <img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/98c4bf22-9078-4613-a247-8838bfd86cf7" width="100%" />
 </p>
 
 In the full architecture of the PointNet, we can clearly see how the Input Transformation Network and the Feature Transformation Network are ```mini-PointNets``` themselves.
