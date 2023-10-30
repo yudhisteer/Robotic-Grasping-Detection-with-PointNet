@@ -63,8 +63,9 @@ Introducing, ```PointNet``` which is a neural network architecture designed for 
 
 The architecture is designed to directly process **unordered** point cloud data, which makes it a useful tool for various ```3D tasks``` such as ```object classification```, ```semantic segmentation```, and ```part segmentation```. 
 
+
 <p align="center">
-  <img src="https://arxiv.org/abs/1612.00593" width="40%" />
+  <img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/682fa684-af02-4f82-8231-c00fa7c5a4bc" width="40%" />
 </p>
 <div align="center">
     <p>Image source: <a href="https://arxiv.org/abs/1612.00593">PointNet: Deep Learning on Point Sets for 3D Classification and Segmentation</a></p>
