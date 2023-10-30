@@ -9,7 +9,10 @@ In the field of robotics, extensive research has been dedicated to teaching robo
   <img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/a42db359-e6d8-4d5a-ab09-d7b0d0b3933e" width="49%" />
   <img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/daeca668-1135-4c86-b83f-57e5ee29b6a6" width="49%" />
 </p>
-
+<div align="center">
+    <p>Video source: <a href="https://www.youtube.com/watch?v=sDFAWnrCqKc&ab_channel=NVIDIADeveloper">Eureka! Extreme Robot Dexterity with LLMs</a></p>
+    <p>Video source: <a href="https://www.youtube.com/watch?v=GyEHRXA_aA4&t=25s&ab_channel=TheTelegraph">'Kitchen robot' that will cook meals from scratch unveiled</a></p>
+</div>
 
 ## Dataset
 
@@ -29,7 +32,9 @@ In the field of robotics, extensive research has been dedicated to teaching robo
 <p align="center">
   <img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/2eccede5-8b00-4b91-99bd-fe5998b237bf" width="70%" />
 </p>
-
+<div align="center">
+    <p>Video source: <a href="https://www.youtube.com/watch?v=ly32I-WLxQY&t=1s&ab_channel=NAVERLABS">AMBIDEX Grasping Demo - Perception & Force Control</a></p>
+</div>
 
 
 ## Plan of Action
@@ -52,12 +57,18 @@ Introducing, ```PointNet``` which is a neural network architecture designed for 
 <p align="center">
   <img src="https://github.com/yudhisteer/Deep-Point-Clouds-3D-Perception/assets/59663734/f54fd8a0-901c-4743-ac91-a47303888b70" width="70%" />
 </p>
+<div align="center">
+    <p>Image source: <a href="https://www.youtube.com/watch?v=ly32I-WLxQY&t=1s&ab_channel=NAVERLABS">PointNet: Deep Learning on Point Sets for 3D Classification and Segmentation</a></p>
+</div>
 
 The architecture is designed to directly process **unordered** point cloud data, which makes it a useful tool for various ```3D tasks``` such as ```object classification```, ```semantic segmentation```, and ```part segmentation```. 
 
 <p align="center">
-  <img src="https://github.com/yudhisteer/Deep-Point-Clouds-3D-Perception/assets/59663734/3d3487cf-65c5-4cc7-b744-5813d5b6e27d" width="40%" />
+  <img src="https://arxiv.org/abs/1612.00593" width="40%" />
 </p>
+<div align="center">
+    <p>Image source: <a href="https://arxiv.org/abs/1612.00593">PointNet: Deep Learning on Point Sets for 3D Classification and Segmentation</a></p>
+</div>
 
 Our project will focus on **classification** and **part-segmentation**.
 
