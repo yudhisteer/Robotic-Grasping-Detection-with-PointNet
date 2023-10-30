@@ -28,6 +28,7 @@ In the field of robotics, extensive research has been dedicated to teaching robo
 
 
 ## Abstract
+This projects involves designing the PointNet model from scratch. We first collected point cloud data using an iPhone's LiDAR though the **Polycam** app. We chose three objects for our dataset: ```Cup```, ```Knife``` and ```Pan```. We cleaned our point cloud using the RANSAC algorithm to filter out any outliers. Because we have a limited dataset, we use data augmentation which is different from those we use on images. We explain why the data augmentation such as scaling or reflection do not work on point cloud data. We then labeled our point cloud using **Segments.ai**. We downloaded and processed the segmentation label. Finally, we trained our model for both **classification** and **part-segmentation**. Our goal is to be able to segment the handle on the object. We evaluated our model on an out-of-sample dataset which did not perform as well as expected but nervertheless, had good results on our test set with accuracy greater than ```98%```. 
 
 <p align="center">
   <img src="https://github.com/yudhisteer/Robotic-Grasping-Detection-with-PointNet/assets/59663734/2eccede5-8b00-4b91-99bd-fe5998b237bf" width="70%" />
@@ -1180,7 +1181,7 @@ The PointNet was one of the first neural network architectures that could direct
 
 Collecting our own data with an app like **Polycam** is possible, but it can be time-consuming and might require multiple attempts for proper point cloud processing. We addressed this by augmenting our point cloud data to increase our dataset size. Although labeling using **Segments.ai** is user-friendly, it remains a manual effort that consumes time. For classification, only ```100 epochs``` were needed to achieve high accuracy on our test set. However, for part-segmentation, we trained our model for ```250 epochs```. During the evaluation of out-of-sample data, we encountered challenges in segmenting the handle from the body due to limited data. To improve this, we could consider a **transfer learning** approach, where we first train the model on the **ShapeNet** dataset, then use the learned weights to further train on our custom dataset, and finally, perform inference on our out-of-sample data. This approach could be listed as a further improvement to our project. 
 
-
+Our goal to segment the handle of an object has proven conclusive when tested on the test dataset. However, for a zero shot segmentation on out-of-sample data, we still need to train our model on larger dataset. We showed how if we could scan an onject in 3D using LiDAR, we could run inference and detect the handle on the object. Our robot would then be able to grasp the object by the handle exactly how a human would do. 
 
 
 
